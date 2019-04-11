@@ -35,7 +35,7 @@ chacha20-c/Hacl_Chacha20.c: chacha20-c/out.krml
 	   -minimal -add-include '"kremlib.h"' -bundle 'Hacl.Chacha20=*'
 
 chacha20.exe: chacha20-c/Hacl_Chacha20.c chacha20-c/out.krml
-	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/dist/generic -I $(KREMLIN_HOME)/include -I . chacha20-c/Hacl_Chacha20.c $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o $(HACL_HOME)/snapshots/hacl-c/Hacl_Chacha20.c chacha20-test.c -o chacha20.exe 
+	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/dist/generic -I $(KREMLIN_HOME)/include -I . $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o chacha20-c/Hacl_Chacha20.c chacha20-test.c -o chacha20.exe 
 	./chacha20.exe
 
 chacha20-perf: chacha20.exe
