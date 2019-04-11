@@ -106,3 +106,58 @@ else
   ENABLE_LTO=-flto
 endif
 GCC_OPTS=$(ENABLE_LTO) -std=c11 -D_GNU_SOURCE
+
+
+#
+# Individual files/directories targets
+#
+
+%.fst-lax: %.fst
+	$(FSTAR) --lax $^
+
+%.fsti-lax: %.fsti
+	$(FSTAR) --lax $^
+
+%.fst-verify: %.fst
+	$(FSTAR) $<
+
+%.fsti-verify: %.fsti
+	$(FSTAR) $<
+
+%.fst-in:
+	@echo --hint_info \
+	$(HINTS_ENABLED) \
+	$(OTHERFLAGS) \
+	$(FSTAR_INCLUDES)
+
+%.fsti-in:
+	@echo --hint_info \
+	$(HINTS_ENABLED) \
+	$(OTHERFLAGS) \
+	$(FSTAR_INCLUDES)
+
+%.fst.hints: %.fst
+	$(FSTAR) --record_hints --z3rlimit_factor 5 $<
+
+%.fsti.hints: %.fsti
+	$(FSTAR) --record_hints --z3rlimit_factor 5 $<
+
+# Custom verification targets for re-located hint files
+%.fst-reloc-verify: %.fst
+	$(FSTAR) --hint_file $(subst -reloc-verify,,$(@F)).hints $<
+%.fsti-reloc-verify: %.fsti
+	$(FSTAR) --hint_file $(subst -reloc-verify,,$(@F)).hints $<
+%.fst.reloc.hints: %.fst
+	$(FSTAR) --hint_file $(subst .reloc,,$(@F)) --record_hints $<
+%.fsti.reloc.hints: %.fsti
+	$(FSTAR) --hint_file $(subst .reloc,,$(@F)) --record_hints $<
+
+# Directories
+%.dir-verify: %
+	$(MAKE) -C $^ verify
+
+%.dir-extract-c: %
+	$(MAKE) -C $^ extract-c
+
+%.dir-hints: %
+	$(MAKE) -C $^ hints
