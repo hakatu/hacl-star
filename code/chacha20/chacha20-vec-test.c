@@ -11,7 +11,9 @@
 //#include "openssl/chacha.h"
 
 //#define ossl_chacha20(cipher,plain,len,nonce,key,ctr) (CRYPTO_chacha_20(cipher,plain,len,nonce,key,ctr))
-
+// extern void CRYPTO_chacha_20(uint8_t *out, const uint8_t *in,
+//                                      size_t in_len, const uint8_t key[32],
+//                                      const uint8_t nonce[12], uint32_t counter);
 typedef uint64_t cycles;
 
 static __inline__ cycles cpucycles_begin(void)
@@ -34,31 +36,30 @@ static __inline__ cycles cpucycles_end(void)
   //return ( (uint64_t)lo)|( ((uint64_t)hi)<<32 );
 }
 
-extern void Hacl_Chacha20_Vec32_chacha20_encrypt(int in_len, uint8_t* out, uint8_t* in, uint8_t* k, uint8_t* n, uint32_t c);
-extern void Hacl_Chacha20_Vec128_chacha20_encrypt(int in_len, uint8_t* out, uint8_t* in, uint8_t* k, uint8_t* n, uint32_t c);
-extern void Hacl_Chacha20_Vec256_chacha20_encrypt(int in_len, uint8_t* out, uint8_t* in, uint8_t* k, uint8_t* n, uint32_t c);
+extern void Hacl_Chacha20_chacha20_encrypt(uint32_t in_len, uint8_t* out, uint8_t* in, uint8_t* k, uint8_t* n, uint32_t c);
+extern void Hacl_Chacha20_Vec32_chacha20_encrypt(uint32_t in_len, uint8_t* out, uint8_t* in, uint8_t* k, uint8_t* n, uint32_t c);
+extern void Hacl_Chacha20_Vec128_chacha20_encrypt(uint32_t in_len, uint8_t* out, uint8_t* in, uint8_t* k, uint8_t* n, uint32_t c);
+extern void Hacl_Chacha20_Vec256_chacha20_encrypt(uint32_t in_len, uint8_t* out, uint8_t* in, uint8_t* k, uint8_t* n, uint32_t c);
 
-extern void Hacl_Chacha20_chacha20(
-  uint8_t *output,
-  uint8_t *plain,
-  uint32_t len,
-  uint8_t *k,
-  uint8_t *n1,
-  uint32_t ctr
-				   );
-extern void
-Hacl_Chacha20_Vec128_chacha20(
-  uint8_t *output,
-  uint8_t *plain,
-  uint32_t len,
-  uint8_t *k,
-  uint8_t *n1,
-  uint32_t ctr
-			      );
+// extern void Hacl_Chacha20_chacha20_encrypt(
+//   uint8_t *output,
+//   uint8_t *plain,
+//   uint32_t len,
+//   uint8_t *k,
+//   uint8_t *n1,
+//   uint32_t ctr
+// 				   );
+// extern void
+// Hacl_Chacha20_Vec128_chacha20(
+//   uint8_t *output,
+//   uint8_t *plain,
+//   uint32_t len,
+//   uint8_t *k,
+//   uint8_t *n1,
+//   uint32_t ctr
+// 			      );
 
-extern void CRYPTO_chacha_20(uint8_t *out, const uint8_t *in,
-                                     size_t in_len, const uint8_t key[32],
-                                     const uint8_t nonce[12], uint32_t counter);
+
 
 #define ROUNDS 100000
 #define SIZE   8192
@@ -154,7 +155,7 @@ int main() {
   if (ok) printf("Success!\n");
   else printf("FAILED!\n");
 
-  Hacl_Chacha20_chacha20(comp,in,in_len,k,n,1);
+  Hacl_Chacha20_chacha20_encrypt(in_len,comp,in,k,n,1);
   printf("Master computed:");
   for (int i = 0; i < 114; i++)
     printf("%02x",comp[i]);
@@ -169,20 +170,20 @@ int main() {
   if (ok) printf("Success!\n");
   else printf("FAILED!\n");
 
-  Hacl_Chacha20_Vec128_chacha20(comp,in,in_len,k,n,1);
-  printf("Master computed:");
-  for (int i = 0; i < 114; i++)
-    printf("%02x",comp[i]);
-  printf("\n");
-  printf("expected:");
-  for (int i = 0; i < 114; i++)
-    printf("%02x",exp[i]);
-  printf("\n");
-  ok = true;
-  for (int i = 0; i < 32; i++)
-    ok = ok & (exp[i] == comp[i]);
-  if (ok) printf("Success!\n");
-  else printf("FAILED!\n");
+  // Hacl_Chacha20_Vec128_chacha20_encrypt(comp,in,in_len,k,n,1);
+  // printf("Master computed:");
+  // for (int i = 0; i < 114; i++)
+  //   printf("%02x",comp[i]);
+  // printf("\n");
+  // printf("expected:");
+  // for (int i = 0; i < 114; i++)
+  //   printf("%02x",exp[i]);
+  // printf("\n");
+  // ok = true;
+  // for (int i = 0; i < 32; i++)
+  //   ok = ok & (exp[i] == comp[i]);
+  // if (ok) printf("Success!\n");
+  // else printf("FAILED!\n");
 
 /*
   ossl_chacha20(comp,in,in_len,k,n,1);
@@ -207,6 +208,24 @@ int main() {
   uint8_t nonce[12];
   cycles a,b;
   clock_t t1,t2;
+
+  memset(plain,'P',SIZE);
+  memset(key,'K',16);
+  memset(nonce,'N',12);
+
+  for (int j = 0; j < ROUNDS; j++) {
+    Hacl_Chacha20_chacha20_encrypt(SIZE,plain,plain,key,nonce,1);
+  }
+
+  t1 = clock();
+  a = cpucycles_begin();
+  for (int j = 0; j < ROUNDS; j++) {
+    Hacl_Chacha20_chacha20_encrypt(SIZE,plain,plain,key,nonce,1);
+  }
+  b = cpucycles_end();
+  t2 = clock();
+  double diff4 = (double)(t2 - t1)/CLOCKS_PER_SEC;
+  uint64_t cyc4 = b - a;
 
   memset(plain,'P',SIZE);
   memset(key,'K',16);
@@ -262,41 +281,41 @@ int main() {
   double diff3 = (double)(t2 - t1)/CLOCKS_PER_SEC;
   uint64_t cyc3 = b - a;
 
-  memset(plain,'P',SIZE);
-  memset(key,'K',16);
-  memset(nonce,'N',12);
+  // memset(plain,'P',SIZE);
+  // memset(key,'K',16);
+  // memset(nonce,'N',12);
 
-  for (int j = 0; j < ROUNDS; j++) {
-    Hacl_Chacha20_chacha20(plain,plain,SIZE,key,nonce,1);
-  }
+  // for (int j = 0; j < ROUNDS; j++) {
+  //   Hacl_Chacha20_chacha20_encrypt(plain,plain,SIZE,key,nonce,1);
+  // }
 
-  t1 = clock();
-  a = cpucycles_begin();
-  for (int j = 0; j < ROUNDS; j++) {
-    Hacl_Chacha20_chacha20(plain,plain,SIZE,key,nonce,1);
-  }
-  b = cpucycles_end();
-  t2 = clock();
-  double diff4 = (double)(t2 - t1)/CLOCKS_PER_SEC;
-  uint64_t cyc4 = b - a;
+  // t1 = clock();
+  // a = cpucycles_begin();
+  // for (int j = 0; j < ROUNDS; j++) {
+  //   Hacl_Chacha20_chacha20_encrypt(plain,plain,SIZE,key,nonce,1);
+  // }
+  // b = cpucycles_end();
+  // t2 = clock();
+  // double diff4 = (double)(t2 - t1)/CLOCKS_PER_SEC;
+  // uint64_t cyc4 = b - a;
 
-  memset(plain,'P',SIZE);
-  memset(key,'K',16);
-  memset(nonce,'N',12);
+  // memset(plain,'P',SIZE);
+  // memset(key,'K',16);
+  // memset(nonce,'N',12);
 
-  for (int j = 0; j < ROUNDS; j++) {
-    Hacl_Chacha20_Vec128_chacha20(plain,plain,SIZE,key,nonce,1);
-  }
+  // for (int j = 0; j < ROUNDS; j++) {
+  //   Hacl_Chacha20_Vec128_chacha20_encrypt(plain,plain,SIZE,key,nonce,1);
+  // }
 
-  t1 = clock();
-  a = cpucycles_begin();
-  for (int j = 0; j < ROUNDS; j++) {
-    Hacl_Chacha20_Vec128_chacha20(plain,plain,SIZE,key,nonce,1);
-  }
-  b = cpucycles_end();
-  t2 = clock();
-  double diff5 = (double)(t2 - t1)/CLOCKS_PER_SEC;
-  uint64_t cyc5 = b - a;
+  // t1 = clock();
+  // a = cpucycles_begin();
+  // for (int j = 0; j < ROUNDS; j++) {
+  //   Hacl_Chacha20_Vec128_chacha20_encrypt(plain,plain,SIZE,key,nonce,1);
+  // }
+  // b = cpucycles_end();
+  // t2 = clock();
+  // double diff5 = (double)(t2 - t1)/CLOCKS_PER_SEC;
+  // uint64_t cyc5 = b - a;
 
 /*
   memset(plain,'P',SIZE);
@@ -320,6 +339,10 @@ int main() {
 
   uint64_t count = ROUNDS * SIZE;
 
+  printf("Base Chacha20\n");
+  printf("cycles for %" PRIu64 " bytes: %" PRIu64 " (%.2fcycles/byte)\n",count,(uint64_t)cyc4,(double)cyc4/count);
+  printf("bw %8.2f MB/s\n",(double)count/(diff4 * 1000000.0));
+
   printf("32-bit Chacha20\n");
   printf("cycles for %" PRIu64 " bytes: %" PRIu64 " (%.2fcycles/byte)\n",count,(uint64_t)cyc1,(double)cyc1/count);
   printf("bw %8.2f MB/s\n",(double)count/(diff1 * 1000000.0));
@@ -332,13 +355,13 @@ int main() {
   printf("cycles for %" PRIu64 " bytes: %" PRIu64 " (%.2fcycles/byte)\n",count,(uint64_t)cyc3,(double)cyc3/count);
   printf("bw %8.2f MB/s\n",(double)count/(diff3 * 1000000.0));
   
-  printf("Master 32-bit Chacha20\n");
-  printf("cycles for %" PRIu64 " bytes: %" PRIu64 " (%.2fcycles/byte)\n",count,(uint64_t)cyc4,(double)cyc4/count);
-  printf("bw %8.2f MB/s\n",(double)count/(diff4 * 1000000.0));
+  // printf("Master 32-bit Chacha20\n");
+  // printf("cycles for %" PRIu64 " bytes: %" PRIu64 " (%.2fcycles/byte)\n",count,(uint64_t)cyc4,(double)cyc4/count);
+  // printf("bw %8.2f MB/s\n",(double)count/(diff4 * 1000000.0));
   
-  printf("Master 128-bit Chacha20\n");
-  printf("cycles for %" PRIu64 " bytes: %" PRIu64 " (%.2fcycles/byte)\n",count,(uint64_t)cyc5,(double)cyc5/count);
-  printf("bw %8.2f MB/s\n",(double)count/(diff5 * 1000000.0));
+  // printf("Master 128-bit Chacha20\n");
+  // printf("cycles for %" PRIu64 " bytes: %" PRIu64 " (%.2fcycles/byte)\n",count,(uint64_t)cyc5,(double)cyc5/count);
+  // printf("bw %8.2f MB/s\n",(double)count/(diff5 * 1000000.0));
   
 /*
   printf("OpenSSL Chacha20\n");
