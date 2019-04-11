@@ -23,19 +23,19 @@ CHACHA20_FILES= $(HACL_HOME)/lib/Lib.IntTypes.fst \
 	$(HACL_HOME)/lib/Lib.Loops.fst \
 	Hacl.Impl.Chacha20.Core32.fst \
 	Hacl.Impl.Chacha20.fst \
-	Hacl.Chacha20.fst 
+	Hacl.Chacha20.fst
 
 KREMLIN_ARGS:=-funroll-loops 8 -warn-error +9 -I $(HACL_HOME)/lib/ -I $(KREMLIN_HOME)/kremlib -I $(HACL_HOME)/specs -I . -ccopt '-march=native' -fbuiltin-uint128 -bundle Prims -bundle FStar -drop Prims -drop FStar -drop FStar.UInt128 -fnocompound-literals -fc89-scope -fparentheses -fcurly-braces -dast
 
 chacha20-c/out.krml: $(CHACHA20_FILES)
-	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-c $(CHACHA20_FILES) -skip-translation 
+	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-c $(CHACHA20_FILES) -skip-translation
 
 chacha20-c/Hacl_Chacha20.c: chacha20-c/out.krml
 	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-c  $^ -skip-compilation \
 	   -minimal -add-include '"kremlib.h"' -bundle 'Hacl.Chacha20=*'
 
 chacha20.exe: chacha20-c/Hacl_Chacha20.c chacha20-c/out.krml
-	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/dist/generic -I $(KREMLIN_HOME)/include -I . $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o chacha20-c/Hacl_Chacha20.c chacha20-test.c -o chacha20.exe 
+	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/dist/generic -I $(KREMLIN_HOME)/include -I . $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o chacha20-c/Hacl_Chacha20.c chacha20-test.c -o chacha20.exe
 	./chacha20.exe
 
 chacha20-perf: chacha20.exe
@@ -49,26 +49,26 @@ CHACHA20_VEC_FILES= $(HACL_HOME)/lib/Lib.IntTypes.fst \
 	$(HACL_HOME)/lib/Lib.IntVector.fst \
 	$(HACL_HOME)/lib/Lib.Loops.fst \
 	Hacl.Impl.Chacha20.Core32xN.fst \
-	Hacl.Impl.Chacha20.Vec.fst 
+	Hacl.Impl.Chacha20.Vec.fst
 
 KREMLIN_ARGS:=-funroll-loops 8 -warn-error +9 -I $(HACL_HOME)/lib/ -I $(HACL_HOME)/lib/c -I $(KREMLIN_HOME)/kremlib -I $(HACL_HOME)/specs -I . -ccopt '-march=native' -fbuiltin-uint128 -bundle Prims -bundle FStar -drop Prims -drop FStar -drop FStar.UInt128 -fnocompound-literals -fc89-scope -fparentheses -fcurly-braces -drop Lib.IntVector.Intrinsics
 
 chacha20-vec32-c/out.krml: $(CHACHA20_VEC_FILES) Hacl.Chacha20.Vec32.fst
-	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec32-c $^ -skip-translation 
+	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec32-c $^ -skip-translation
 
 chacha20-vec32-c/Hacl_Chacha20_Vec32.c: chacha20-vec32-c/out.krml
 	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec32-c  $^ -skip-compilation \
 	   -minimal -add-include '"vec-intrin.h"' -add-include '"kremlib.h"' -bundle 'Hacl.Chacha20_Vec32=*'
 
 chacha20-vec128-c/out.krml: $(CHACHA20_VEC_FILES) Hacl.Chacha20.Vec128.fst
-	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec128-c $^ -skip-translation 
+	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec128-c $^ -skip-translation
 
 chacha20-vec128-c/Hacl_Chacha20_Vec128.c: chacha20-vec128-c/out.krml
 	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec128-c  $^ -skip-compilation \
 	   -minimal -add-include '"vec-intrin.h"' -add-include '"kremlib.h"' -bundle 'Hacl.Chacha20_Vec128=*'
 
 chacha20-vec256-c/out.krml: $(CHACHA20_VEC_FILES) Hacl.Chacha20.Vec256.fst
-	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec256-c $^ -skip-translation 
+	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec256-c $^ -skip-translation
 
 chacha20-vec256-c/Hacl_Chacha20_Vec256.c: chacha20-vec256-c/out.krml
 	 $(KREMLIN) $(KREMLIN_ARGS) -tmpdir chacha20-vec256-c  $^ -skip-compilation \
@@ -76,12 +76,12 @@ chacha20-vec256-c/Hacl_Chacha20_Vec256.c: chacha20-vec256-c/out.krml
 
 
 chacha20-vec.exe: chacha20-vec32-c/Hacl_Chacha20_Vec32.c chacha20-vec128-c/Hacl_Chacha20_Vec128.c chacha20-vec256-c/Hacl_Chacha20_Vec256.c
-	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/dist/generic -I $(KREMLIN_HOME)/include -I $(HACL_HOME)/lib/c -I . chacha20-vec32-c/Hacl_Chacha20_Vec32.c chacha20-vec128-c/Hacl_Chacha20_Vec128.c chacha20-vec256-c/Hacl_Chacha20_Vec256.c $(HACL_HOME)/snapshots/hacl-c/Hacl_Chacha20.c $(HACL_HOME)/snapshots/hacl-c/Hacl_Chacha20_Vec128.c chacha20-vec-test.c -o chacha20-vec.exe $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o 
+	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/dist/generic -I $(KREMLIN_HOME)/include -I $(HACL_HOME)/lib/c -I . chacha20-vec32-c/Hacl_Chacha20_Vec32.c chacha20-vec128-c/Hacl_Chacha20_Vec128.c chacha20-vec256-c/Hacl_Chacha20_Vec256.c chacha20-c/Hacl_Chacha20.c chacha20-vec128-c/Hacl_Chacha20_Vec128.c chacha20-vec-test.c -o chacha20-vec.exe $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o
 	./chacha20-vec.exe
 
 
 # chacha20-vec.exe: chacha20-vec32-c/Hacl_Chacha20_Vec32.c chacha20-vec128-c/Hacl_Chacha20_Vec128.c chacha20-vec256-c/Hacl_Chacha20_Vec256.c
-# 	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/c -I $(KREMLIN_HOME)/include -I $(HACL_HOME)/lib/c -I . chacha20-vec32-c/Hacl_Chacha20_Vec32.c chacha20-vec128-c/Hacl_Chacha20_Vec128.c chacha20-vec256-c/Hacl_Chacha20_Vec256.c $(HACL_HOME)/snapshots/hacl-c/Hacl_Chacha20.c $(HACL_HOME)/snapshots/hacl-c/Hacl_Chacha20_Vec128.c chacha20-vec-test.c -o chacha20-vec.exe $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o -ldl -lpthread -I ../boringssl/include ../boringssl/build/crypto/libcrypto.a
+# 	$(CC) -march=native -mtune=native -O3 -I $(KREMLIN_HOME)/kremlib/c -I $(KREMLIN_HOME)/include -I $(HACL_HOME)/lib/c -I . chacha20-vec32-c/Hacl_Chacha20_Vec32.c chacha20-vec128-c/Hacl_Chacha20_Vec128.c chacha20-vec256-c/Hacl_Chacha20_Vec256.c $(HACL_HOME)/snap\shots/hacl-c/Hacl_Chacha20.c $(HACL_HOME)/snapshots/hacl-c/Hacl_Chacha20_Vec128.c chacha20-vec-test.c -o chacha20-vec.exe $(KREMLIN_HOME)/kremlib/dist/generic/testlib.o -ldl -lpthread -I ../boringssl/include ../boringssl/build/crypto/libcrypto.a
 # 	./chacha20-vec.exe
 
 chacha20-vec-perf: chacha20-vec.exe
