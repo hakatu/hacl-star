@@ -51,7 +51,7 @@ let reveal_ctx_inv #s ctx h0 h1 =
   assert (as_seq h0 r_b == as_seq h1 r_b);
   assert (as_seq h0 precom_b == as_seq h1 precom_b)
 
-#reset-options "--z3rlimit 50 --max_fuel 0 --using_facts_from '* -FStar.Seq'"
+#reset-options "--z3rlimit 100 --max_fuel 0 --using_facts_from '* -FStar.Seq'"
 
 val lemma_pow2_128: n:nat ->
   Lemma
