@@ -26,16 +26,6 @@ ci: .clean-git
 	$(MAKE) -C code/experimental/aes-gcm
 	$(MAKE) -C code/frodo/spec
 	$(MAKE) -C code/frodo/code TARGET=
-	# $(MAKE) extract-specs
-	# $(MAKE) extract-all
-	# $(MAKE) -C code clean-c
-	# $(MAKE) -C code extract-c
-	# $(MAKE) -C providers/
-	# $(MAKE) -C providers/test
-	# $(MAKE) -C secure_api runtime_switch verify # test both extraction & verification
-	# $(MAKE) test-all
-	# $(MAKE) build-make
-	# $(MAKE) package
 
 #
 # Clean
