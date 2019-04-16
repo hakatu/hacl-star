@@ -18,56 +18,25 @@ noeq type traceState = {
   memTaint: memTaint_t;
 }
 
-// Extract a list of destinations written to and a list of sources read from
-let extract_operands (i:ins) : (list operand * list operand) =
-  match i with
-  | S.Mov64 dst src -> [dst], [src]
-  | S.MovBe64 dst src -> [dst], [src]
-  | S.Cmovc64 dst src -> [dst], [src; dst]
-  | S.Add64 dst src -> [dst], [dst; src]
-  | S.AddLea64 dst src1 src2 -> [dst], [dst; src1; src2]
-  | S.AddCarry64 dst src -> [dst], [dst; src]
-  | S.Adcx64 dst src -> [dst], [dst; src]
-  | S.Adox64 dst src -> [dst], [dst; src]
-  | S.Sub64 dst src -> [dst], [dst; src]
-  | S.Sbb64 dst src -> [dst], [dst; src]
-  | S.Mul64 src -> [OReg Rax; OReg Rdx], [OReg Rax; src]
-  | S.Mulx64 dst_hi dst_lo src -> [dst_hi; dst_lo], [OReg Rdx; src]
-  | S.IMul64 dst src -> [dst], [dst; src]
-  | S.Xor64 dst src -> [dst], [dst; src]
-  | S.And64 dst src -> [dst], [dst; src]
-  | S.Shr64 dst amt -> [dst], [dst; amt]
-  | S.Shl64 dst amt -> [dst], [dst; amt]
-  | S.Pinsrd _ src _ | S.Pinsrq _ src _ -> [], [src]
-  | S.Pextrq dst _ _ -> [dst], []
-  | S.Push src -> [], [src]
-  | S.Pop dst -> [dst], [OStack (MReg Rsp 0)]
-  | S.Alloc _ | S.Dealloc _ -> [OReg Rsp], [OReg Rsp]
-  | _ -> [], []
-
-(*
- * AR: do we need the two lists with ins? Can't we always call extract_operands where we need them?
- *)
 type tainted_ins : eqtype = 
   | TaintedIns: i:ins -> t:taint -> tainted_ins
+
+let maddr_obs (s:traceState) (m:maddr) : list observation =
+  match m with
+  | MConst _ -> []
+  | MReg reg _ -> [MemAccess (eval_reg reg s.state)]
+  | MIndex base _ index _ -> [MemAccessOffset (eval_reg base s.state) (eval_reg index s.state)]
+
 
 let operand_obs (s:traceState) (o:operand) : list observation =
   match o with
     | OConst _ | OReg _ -> []
-    | OMem m | OStack m ->
-      match m with
-      | MConst _ -> []
-      | MReg reg _ -> [MemAccess (eval_reg reg s.state)]
-      | MIndex base _ index _ -> [MemAccessOffset (eval_reg base s.state) (eval_reg index s.state)]
+    | OMem m | OStack m -> maddr_obs s m
 
-let rec operand_obs_list (s:traceState) (o:list operand) : list observation =
+let operand_obs128 (s:traceState) (o:mov128_op) : list observation =
   match o with
-  | [] -> []
-  | hd::tl -> operand_obs s hd @ (operand_obs_list s tl)
-
-let ins_obs (ins:tainted_ins) (s:traceState) : (list observation) =
-  let (dsts, srcs) = extract_operands ins.i in
-  operand_obs_list s dsts @ operand_obs_list s srcs
+  | Mov128Xmm _ -> []
+  | Mov128Mem m | Mov128Stack m -> maddr_obs s m
 
 [@"opaque_to_smt"]
 private let rec match_n (addr:int) (n:nat) (memTaint:memTaint_t) (t:taint)
@@ -95,21 +64,10 @@ let taint_match (o:operand) (t:taint) (memTaint:memTaint_t) (s:state) : bool =
     | OMem m -> match_n (eval_maddr m s) 8 memTaint t
     | OStack m -> t = Public // everything on the stack should be public
 
-let rec taint_match_list (o:list operand) (t:taint) (memTaint:memTaint_t) (s:state) : bool =
-  match o with
-  | [] -> true
-  | hd::tl -> (taint_match hd t memTaint s) && taint_match_list tl t memTaint s
-
 let update_taint (memTaint:memTaint_t) (dst:operand) (t:taint) (s:state) : memTaint_t =
   match dst with
     | OConst _ | OReg _ | OStack _ -> memTaint
     | OMem m -> update_n (eval_maddr m s) 8 memTaint t
-
-let rec update_taint_list (memTaint:memTaint_t) (dst:list operand) (t:taint) (s:state)
-  : Tot (memTaint_t) (decreases %[dst])
-  = match dst with
-    | [] -> memTaint
-    | hd :: tl -> update_taint_list (update_taint memTaint hd t s) tl t s
 
 let taint_match128 (op:mov128_op) (t:taint) (memTaint:memTaint_t) (s:state) : bool =
   match op with
@@ -117,10 +75,279 @@ let taint_match128 (op:mov128_op) (t:taint) (memTaint:memTaint_t) (s:state) : bo
   | Mov128Stack _ -> t = Public // Everything on the stack should be public
   | Mov128Mem addr -> match_n (eval_maddr addr s) 16 memTaint t
 
-let update_taint128 op t (memTaint:memTaint_t) (s:state) : memTaint_t =
+let update_taint128 (memTaint:memTaint_t) op t (s:state) : memTaint_t =
   match op with
   | Mov128Xmm _ | Mov128Stack _ -> memTaint
   | Mov128Mem addr -> update_n (eval_maddr addr s) 16 memTaint t
+
+// Collect observations for all instructions
+let get_observations (ins:tainted_ins) (ts:traceState) : Tot (list observation) =
+  match ins.i with
+  | S.Cpuid -> []
+  | S.Mov64 dst src 
+  | S.MovBe64 dst src
+  | S.Cmovc64 dst src
+  | S.Add64 dst src -> operand_obs ts dst @ operand_obs ts src
+  | S.AddLea64 dst src1 src2 -> operand_obs ts dst @ operand_obs ts src1 @ operand_obs ts src2
+  | S.AddCarry64 dst src
+  | S.Adcx64 dst src
+  | S.Adox64 dst src
+  | S.Sub64 dst src
+  | S.Sbb64 dst src -> operand_obs ts dst @ operand_obs ts src
+  | S.Mul64 src -> operand_obs ts src
+  | S.Mulx64 dst_hi dst_lo src -> operand_obs ts dst_hi @ operand_obs ts dst_lo @ operand_obs ts src
+  | S.IMul64 dst src
+  | S.Xor64 dst src
+  | S.And64 dst src -> operand_obs ts dst @ operand_obs ts src
+  | S.Shr64 dst amt
+  | S.Shl64 dst amt -> operand_obs ts dst @ operand_obs ts amt
+  | S.Push src -> operand_obs ts src
+  | S.Pop dst -> operand_obs ts dst
+  | S.Alloc n | S.Dealloc n -> []
+  | S.Paddd _ _
+  | S.VPaddd _ _ _
+  | S.Pxor _ _
+  | S.VPxor _ _ _
+  | S.Pand _ _
+  | S.Pslld _ _
+  | S.Psrld _ _
+  | S.Psrldq _ _
+  | S.Palignr _ _ _
+  | S.VPalignr _ _ _ _
+  | S.Shufpd _ _ _
+  | S.VShufpd _ _ _ _
+  | S.Pshufb _ _
+  | S.VPshufb _ _ _
+  | S.Pshufd _ _ _
+  | S.Pcmpeqd _ _ -> []
+  | S.Pextrq dst _ _ -> operand_obs ts dst
+  | S.Pinsrd _ src _
+  | S.Pinsrq _ src _ -> operand_obs ts src
+  | S.VPSLLDQ _ _ _
+  | S.Vpsrldq _ _ _ -> []
+  | S.MOVDQU dst src -> operand_obs128 ts dst @ operand_obs128 ts src
+  | S.Pclmulqdq _ _ _
+  | S.VPclmulqdq _ _ _ _
+  | S.AESNI_enc _ _
+  | S.VAESNI_enc _ _ _ 
+  | S.AESNI_enc_last _ _
+  | S.VAESNI_enc_last _ _ _
+  | S.AESNI_dec _ _
+  | S.AESNI_dec_last _ _
+  | S.AESNI_imc _ _
+  | S.AESNI_keygen_assist _ _ _
+  | S.SHA256_rnds2 _ _
+  | S.SHA256_msg1 _ _
+  | S.SHA256_msg2 _ _ -> []
+
+// Tainted semantics for individual instructions. Will be very similar
+
+let taint_eval_cpuid (ins:tainted_ins{S.Cpuid? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Cpuid = ins.i in
+  let s = run (eval_ins ins.i) ts.state in
+  {state = s; trace = obs @ ts.trace; memTaint = ts.memTaint}
+
+let taint_eval_mov64 (ins:tainted_ins{S.Mov64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Mov64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_movbe64 (ins:tainted_ins{S.MovBe64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.MovBe64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_cmovc64 (ins:tainted_ins{S.Cmovc64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Cmovc64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_add64 (ins:tainted_ins{S.Add64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Add64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_addlea64 (ins:tainted_ins{S.AddLea64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.AddLea64 dst src1 src2 = ins.i in
+  let s = run (check (taint_match src1 t ts.memTaint)) ts.state in
+  let s = run (check (taint_match src2 t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_addcarry64 (ins:tainted_ins{S.AddCarry64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.AddCarry64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_adcx64 (ins:tainted_ins{S.Adcx64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Adcx64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_adox64 (ins:tainted_ins{S.Adox64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Adox64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_sub64 (ins:tainted_ins{S.Sub64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Sub64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_sbb64 (ins:tainted_ins{S.Sbb64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Sbb64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_mul64 (ins:tainted_ins{S.Mul64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Mul64 src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = ts.memTaint}
+
+let taint_eval_mulx64 (ins:tainted_ins{S.Mulx64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Mulx64 dst_hi dst_lo src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let lo = FStar.UInt.mul_mod #64 (eval_reg Rdx s) (eval_operand src s) in
+  let s' = update_operand_preserve_flags' dst_lo lo s in
+  let memTaint = update_taint ts.memTaint dst_lo t s in
+  let memTaint = update_taint memTaint dst_hi t s' in  
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_imul64 (ins:tainted_ins{S.Sbb64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Sbb64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_xor64 (ins:tainted_ins{S.Xor64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Xor64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_and64 (ins:tainted_ins{S.And64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.And64 dst src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_shr64 (ins:tainted_ins{S.Shr64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Shr64 dst amt = ins.i in
+  let s = run (check (taint_match amt t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_shl64 (ins:tainted_ins{S.Shl64? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Shl64 dst amt = ins.i in
+  let s = run (check (taint_match amt t ts.memTaint)) ts.state in
+  let s = run (check (taint_match dst t ts.memTaint)) s in
+  let memTaint = update_taint ts.memTaint dst t s in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_push (ins:tainted_ins{S.Push? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Push src = ins.i in
+  let s = run (check (taint_match src t ts.memTaint)) ts.state in
+  let s = run (eval_ins ins.i) s in
+  {state = s; trace = obs @ ts.trace; memTaint = ts.memTaint}
+
+let taint_eval_pop (ins:tainted_ins{S.Pop? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Pop dst = ins.i in
+  let memTaint = update_taint ts.memTaint dst t ts.state in
+  let s = run (eval_ins ins.i) ts.state in
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
+
+let taint_eval_alloc (ins:tainted_ins{S.Alloc? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Alloc n = ins.i in
+  let s = run (eval_ins ins.i) ts.state in
+  {state = s; trace = obs @ ts.trace; memTaint = ts.memTaint}
+
+let taint_eval_dealloc (ins:tainted_ins{S.Dealloc? ins.i}) (ts:traceState) : GTot traceState =
+  let obs = get_observations ins ts in
+  let t = ins.t in
+  let S.Dealloc n = ins.i in
+  let s = run (eval_ins ins.i) ts.state in
+  {state = s; trace = obs @ ts.trace; memTaint = ts.memTaint}
+
+...
 
 // Special treatment for movdqu
 let taint_eval_movdqu (ins:tainted_ins{S.MOVDQU? ins.i}) (ts:traceState) : GTot traceState =
@@ -129,7 +356,7 @@ let taint_eval_movdqu (ins:tainted_ins{S.MOVDQU? ins.i}) (ts:traceState) : GTot 
   let s = run (check (taint_match128 src t ts.memTaint)) ts.state in
   let memTaint = update_taint128 dst t ts.memTaint s in
   let s = run (eval_ins (S.MOVDQU dst src)) s in
-  {state = s; trace = ts.trace; memTaint = memTaint}
+  {state = s; trace = obs @ ts.trace; memTaint = memTaint}
 
 let taint_eval_ins (ins:tainted_ins) (ts: traceState) : GTot traceState =
   let t = ins.t in
