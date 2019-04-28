@@ -1,5 +1,5 @@
 [
-  "\u0017\u001bFÚ; ¬‘†;{jq¤¨®",
+  "dŠ2\u0001\u001a\u0010cÙ†÷§\u0013\u0001Écg",
   [
     [
       "Test.test_poly1305_one",
@@ -121,7 +121,7 @@
         "unit_inversion"
       ],
       0,
-      "0813fa047ef32d24041285d4397ac6c7"
+      "ac663ef0f61e0487f90085737032f50a"
     ],
     [
       "Test.test_poly1305",
@@ -141,7 +141,7 @@
         "typing_Test.Vectors.Poly1305.vectors"
       ],
       0,
-      "105942ff5a3fa89d7b89ea0436cd558e"
+      "0afe8f97699e20f2b028bd36d63508b1"
     ],
     [
       "Test.test_curve25519_one",
@@ -275,7 +275,7 @@
         "typing_Spec.Poly1305.size_key", "typing_tok_Lib.Buffer.MUT@tok"
       ],
       0,
-      "0cbd1e92dc3d56bc4a5afeecce8f7363"
+      "80d215f3cf936e92dc0019e5fc7c84f7"
     ],
     [
       "Test.test_curve25519",
@@ -295,7 +295,7 @@
         "typing_Test.Vectors.Curve25519.vectors"
       ],
       0,
-      "ad6e952dc17e3d37a5f5c663656313d6"
+      "c6877d9ea8f29fcb9ff22b2b2cef7acd"
     ],
     [
       "Test.test_aes_ecb",
@@ -401,7 +401,7 @@
         "typing_Spec.Poly1305.size_key", "unit_inversion", "unit_typing"
       ],
       0,
-      "6baf2d6a87dab418eb42057d278e11f8"
+      "6770ab4729d63fcd8afffd1555fcea65"
     ],
     [
       "Test.test_cipher",
@@ -410,7 +410,7 @@
       1,
       [ "@query" ],
       0,
-      "fe2de8b150419183685d7f7518478789"
+      "d7219ba3c981e1d9731a246163a96b3a"
     ],
     [
       "Test.aead_key_length32",
@@ -449,7 +449,7 @@
         "projection_inverse_FStar.Integers.Unsigned__0"
       ],
       0,
-      "c0af865c93737273c718fa13bdfb4a67"
+      "25a1e532113432f4490b12918963e886"
     ],
     [
       "Test.aead_max_length32",
@@ -497,7 +497,7 @@
         "typing_Spec.AEAD.max_length", "typing_Spec.Poly1305.size_key"
       ],
       0,
-      "cd6b36ce1487faeb4c4dc15f53f7a07e"
+      "5d3bd98575a4292c0a287b6669bb70bc"
     ],
     [
       "Test.aead_tag_length32",
@@ -554,7 +554,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "ae90a4f6443742e67ef0bcb1b5e813d0"
+      "766422e9576ef65ee7e7d514e39037de"
     ],
     [
       "Test.aead_iv_length32",
@@ -563,7 +563,7 @@
       1,
       [ "@query", "equation_Spec.AEAD.iv_length" ],
       0,
-      "e57648fcbb93b42e840896252de92daa"
+      "19048caac07423d7962162809ceaf80f"
     ],
     [
       "Test.test_aead_st",
@@ -688,6 +688,7 @@
         "lemma_LowStar.Monotonic.Buffer.address_liveness_insensitive_buffer",
         "lemma_LowStar.Monotonic.Buffer.freeable_length",
         "lemma_LowStar.Monotonic.Buffer.fresh_frame_modifies",
+        "lemma_LowStar.Monotonic.Buffer.lemma_live_equal_mem_domains",
         "lemma_LowStar.Monotonic.Buffer.length_as_seq",
         "lemma_LowStar.Monotonic.Buffer.live_loc_not_unused_in",
         "lemma_LowStar.Monotonic.Buffer.loc_disjoint_includes_r",
@@ -704,6 +705,7 @@
         "lemma_LowStar.Monotonic.Buffer.loc_union_comm",
         "lemma_LowStar.Monotonic.Buffer.loc_union_loc_none_r",
         "lemma_LowStar.Monotonic.Buffer.modifies_buffer_elim",
+        "lemma_LowStar.Monotonic.Buffer.modifies_liveness_insensitive_buffer",
         "lemma_LowStar.Monotonic.Buffer.modifies_liveness_insensitive_buffer_weak",
         "lemma_LowStar.Monotonic.Buffer.modifies_loc_includes",
         "lemma_LowStar.Monotonic.Buffer.modifies_loc_unused_in",
@@ -788,7 +790,7 @@
         "unit_inversion", "unit_typing"
       ],
       0,
-      "c73bcdf43181bb76248e4629eddee35f"
+      "1aac9485048a9daeb1bd2042f918d6da"
     ],
     [
       "Test.alg_of_alg",
@@ -803,7 +805,7 @@
         "fuel_guarded_inversion_Test.Vectors.cipher"
       ],
       0,
-      "9e57223fc3a5aefc680aab19d4b0515f"
+      "660752664323ccacbd1a8bb08a4d9a75"
     ],
     [
       "Test.test_aead_loop",
@@ -892,7 +894,7 @@
         "typing_Test.alg_of_alg"
       ],
       0,
-      "33a3412ea452a21c2b6f71dd1f09b6d2"
+      "f59fa2c7e1cfc0e8142b91ce60ab4c7e"
     ],
     [
       "Test.test_chacha20poly1305_loop",
@@ -991,7 +993,7 @@
         "typing_Test.Vectors.Chacha20Poly1305.vectors_len"
       ],
       0,
-      "e45d1c44333cf85621cce5a350d8fc57"
+      "d8c162c329455ded1f07a78dff37f454"
     ],
     [
       "Test.test_aes128_gcm_loop",
@@ -1043,7 +1045,7 @@
         "typing_Test.Vectors.Aes128Gcm.vectors_len"
       ],
       0,
-      "e1a7587ec91ffea7022a5a0a135c6aef"
+      "7174630c91e0a34c7e19e8c4b234af93"
     ],
     [
       "Test.test_rng",
@@ -1056,7 +1058,7 @@
         "lemma_FStar.HyperStack.ST.lemma_same_refs_in_stack_regions_intro"
       ],
       0,
-      "52db3f799770ac25dd11f46987a4dc53"
+      "649e02bc2f46ce5d7d55005f3e16aa9f"
     ],
     [
       "Test.test_dh",
@@ -1069,7 +1071,7 @@
         "lemma_FStar.HyperStack.ST.lemma_same_refs_in_stack_regions_intro"
       ],
       0,
-      "16bed6bd5b115a71283708f799dbe619"
+      "97ab74978770e8ad71a851f1fa652e29"
     ],
     [
       "Test.test_all_body",
@@ -1093,7 +1095,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "6372dacc685805c3d2862ae504300a13"
+      "ca41533f9a3a44cc1160ae69e82b1135"
     ],
     [
       "Test.platform",
@@ -1105,7 +1107,7 @@
         "assumption_Test.hacl_opt__uu___haseq", "kinding_Test.hacl_opt@tok"
       ],
       0,
-      "0c578e27d241b6d3450ee86901227ccf"
+      "f9249daba07e2c225ca6afdce6fe47d1"
     ],
     [
       "Test.__proj__HACL__item___0",
@@ -1118,7 +1120,7 @@
         "refinement_interpretation_Tm_refine_f05d0a226e2230261ded16454e80906c"
       ],
       0,
-      "0bac409f1a39ecd3e1b7ae689df3e585"
+      "a11122fb29e51ae06cdea92686f87fcf"
     ],
     [
       "Test.config_ok",
@@ -1147,7 +1149,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "8b359aa2bcb5bcaa7f84dbe1ae7d5154"
+      "7b2d57d1134d83760d6a21a3c19f2631"
     ],
     [
       "Test.print_platform",
@@ -1177,7 +1179,7 @@
         "typing_Test.__proj__HACL__item___0"
       ],
       0,
-      "0b63fc1a38824d7b2c07d7a86d9a6fa9"
+      "21aaec2e2c0fea5640947407a18d25b0"
     ],
     [
       "Test.set_autoconfig",
@@ -1218,7 +1220,7 @@
         "typing_tok_Test.OpenSSL@tok"
       ],
       0,
-      "63094ed0aa82f51b5a5e3955ce920a98"
+      "4a04e1a13c41380ae921cf522b03adc9"
     ],
     [
       "Test.test_all_on_platform",
@@ -1242,7 +1244,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "2dddf4546f5a432e4f7da05a586b5172"
+      "3a201c0a1510f7272fcaca05c08852c9"
     ],
     [
       "Test.test_all",
@@ -1264,7 +1266,7 @@
         "typing_FStar.Monotonic.HyperStack.get_tip"
       ],
       0,
-      "1574673034eb407df897f63310b33656"
+      "141ac12626a5b070b4723766e464284c"
     ],
     [
       "Test.main",
@@ -1337,7 +1339,7 @@
         "typing_tok_C.EXIT_SUCCESS@tok"
       ],
       0,
-      "eff1c6448ff2c650c472cbc02be3871a"
+      "92d4f111c9c6a6413e54268060cede1a"
     ]
   ]
 ]

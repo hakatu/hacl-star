@@ -176,7 +176,7 @@ let aead_iv_length32 (al: Spec.AEAD.alg) : Tot (x: U32.t { U32.v x == Spec.AEAD.
 
 #reset-options "--using_facts_from '* -Test.Vectors'"
 
-#push-options "--z3rlimit 128"
+#push-options "--z3rlimit 256"
 
 let test_aead_st alg key key_len iv iv_len aad aad_len tag tag_len plaintext plaintext_len
   ciphertext ciphertext_len: ST unit
@@ -247,7 +247,7 @@ let test_aead_st alg key key_len iv iv_len aad aad_len tag tag_len plaintext pla
       if EverCrypt.AEAD.(encrypt #(G.hide alg) st iv aad aad_len plaintext plaintext_len ciphertext' tag' <> Success) then
         C.Failure.failwith !$"Failure AEAD encrypt\n";
       let h3 = HST.get () in
-      EverCrypt.AEAD.frame_invariant (B.loc_buffer ciphertext' `B.loc_union` B.loc_buffer tag') st h2 h3;
+      FStar.Classical.move_requires (EverCrypt.AEAD.frame_invariant (B.loc_buffer ciphertext' `B.loc_union` B.loc_buffer tag') st h2) h3;
       (match EverCrypt.AEAD.decrypt #(G.hide alg) st iv aad aad_len ciphertext' ciphertext_len tag' plaintext' with
       | Success ->
         B.recall ciphertext;

@@ -14,7 +14,7 @@
         "typing_LowStar.Monotonic.Buffer.loc_none"
       ],
       0,
-      "78ca4d9c44f71ac337752d29c7bcec5c"
+      "dbc3008cd4c06d5fb6ab12a604f0f885"
     ],
     [
       "EverCrypt.Curve25519.secret_to_public",
@@ -79,7 +79,7 @@
         "typing_tok_Lib.Buffer.MUT@tok", "typing_tok_Lib.IntTypes.U32@tok"
       ],
       0,
-      "4d06e050eceab875a3d6ff24f90124ff"
+      "0f8189f20a39d3f9543b534c23d7660d"
     ],
     [
       "EverCrypt.Curve25519.ecdh",

@@ -58,15 +58,19 @@ let footprint_s #a (Ek _ _ ek) = B.loc_addr_of_buffer ek
 let invariant_s #a h (Ek i kv ek) =
   is_supported_alg a /\
   B.live h ek /\
-  B.as_seq h ek `S.equal` expand #a (G.reveal kv) /\ (
+  B.length ek >= ekv_length a /\
+  B.as_seq h (B.gsub ek 0ul (UInt32.uint_to_t (ekv_length a))) `S.equal` expand #a (G.reveal kv) /\ (
   match i with
   | Vale_AES128_GCM ->
       a = AES128_GCM /\
+      B.length ek == ekv_length a + 160 /\
       EverCrypt.TargetConfig.x64 /\ X64.CPU_Features_s.(aesni_enabled /\ pclmulqdq_enabled)
   | Vale_AES256_GCM ->
       a = AES256_GCM /\
+      B.length ek == ekv_length a + 160 /\
       EverCrypt.TargetConfig.x64 /\ X64.CPU_Features_s.(aesni_enabled /\ pclmulqdq_enabled)
   | Hacl_CHACHA20_POLY1305 ->
+      B.length ek == ekv_length a /\
       a = CHACHA20_POLY1305 /\
       True)
 
@@ -137,7 +141,7 @@ fun r dst k ->
   let has_aesni = EverCrypt.AutoConfig2.has_aesni () in
   let has_pclmulqdq = EverCrypt.AutoConfig2.has_pclmulqdq () in
   if EverCrypt.TargetConfig.x64 && (has_aesni && has_pclmulqdq) then (
-    let ek = B.malloc r 0uy (ekv_len a) in
+    let ek = B.malloc r 0uy (ekv_len a + 160ul) in
     let keys_b = B.sub ek 0ul (key_offset a) in
     let hkeys_b = B.sub ek (key_offset a) 128ul in
     aes_gcm_key_expansion a k keys_b;
@@ -177,7 +181,7 @@ fun r dst k ->
     in lemma_aux_hkeys ();
 
     let h2 = ST.get() in
-    assert (Seq.equal (B.as_seq h2 ek)  (expand #a (G.reveal kv)));
+    assert (Seq.equal (B.as_seq h2 (B.gsub ek 0ul (ekv_len a)))  (expand #a (G.reveal kv)));
     B.modifies_only_not_unused_in B.loc_none h0 h2;
     let p = B.malloc r (Ek (impl_of_aes_gcm_alg a) (G.hide (B.as_seq h0 k)) ek) 1ul in
     let open LowStar.BufferOps in
@@ -222,15 +226,15 @@ fun s iv ad ad_len plain plain_len cipher tag ->
       AES_s.is_aes_key_LE (vale_alg_of_alg a) k_w);
 
     push_frame();
+    let scratch_b = B.sub ek (ekv_len a) 160ul in
+
+    let ek = B.sub ek 0ul (ekv_len a) in 
     let keys_b = B.sub ek 0ul (key_offset a) in
     let hkeys_b = B.sub ek (key_offset a) 128ul in
-
-    let h0 = get() in
 
     // The iv is modified by Vale, which the API does not allow. Hence
     // we allocate a temporary buffer and blit the contents of the iv
     let tmp_iv = B.alloca 0uy 16ul in
-    let h_pre = get() in
 
     MB.blit iv 0ul tmp_iv 0ul 12ul;
 
@@ -297,7 +301,8 @@ fun s iv ad ad_len plain plain_len cipher tag ->
       cipher
       tag
       keys_b
-      hkeys_b;
+      hkeys_b
+      scratch_b;
 
     let h1 = get() in
 
@@ -370,13 +375,14 @@ fun s iv ad ad_len cipher cipher_len tag dst ->
         AES_s.is_aes_key_LE (vale_alg_of_alg a) k_w);
 
       push_frame();
+      let scratch_b = B.sub ek (ekv_len a) 160ul in
+      let ek = B.sub ek 0ul (ekv_len a) in
       let keys_b = B.sub ek 0ul (key_offset a) in
       let hkeys_b = B.sub ek (key_offset a) 128ul in
 
       // The iv is modified by Vale, which the API does not allow. Hence
       // we allocate a temporary buffer and blit the contents of the iv
       let tmp_iv = B.alloca 0uy 16ul in
-      let h_pre = get() in
 
       MB.blit iv 0ul tmp_iv 0ul 12ul;
 
@@ -447,7 +453,8 @@ fun s iv ad ad_len cipher cipher_len tag dst ->
         dst
         tag
         keys_b
-        hkeys_b in
+        hkeys_b
+        scratch_b in
 
       let h1 = get() in
 

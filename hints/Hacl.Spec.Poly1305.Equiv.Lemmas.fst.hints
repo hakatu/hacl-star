@@ -111,7 +111,7 @@
         "typing_Hacl.Spec.Poly1305.Vec.prime"
       ],
       0,
-      "c5e45c3ba337b360cb25aa30c2a2d2a9"
+      "99c2167aee778d02306603d1cded6a76"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_repeat_blocks_multi_lemma2_simplify_rp",
@@ -474,7 +474,7 @@
         "typing_Hacl.Spec.Poly1305.Vec.prime"
       ],
       0,
-      "87725ab57f2401fdbceb712a789d5086"
+      "fce636ae943f7ba7310a44a9ce28ea8c"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_repeat_blocks_multi_lemma4_simplify_rp2",
@@ -488,7 +488,7 @@
         "typing_Hacl.Spec.Poly1305.Vec.prime"
       ],
       0,
-      "5f8074f8fd05f71965d837d31e268d2b"
+      "ddcb866f896668b698d29649a2dcd999"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_repeat_blocks_multi_lemma4_simplify_rp1",
@@ -536,7 +536,7 @@
         "typing_Hacl.Spec.Poly1305.Vec.size_key"
       ],
       0,
-      "d28f621d9fdca0211f9668a83545817d"
+      "ccd99ee7d49e869b2671cf1e40b45b7e"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_repeat_blocks_multi_lemma4_simplify",
@@ -662,11 +662,11 @@
       [
         "@MaxIFuel_assumption", "@query", "equation_Prims.nat",
         "int_inversion", "primitive_Prims.op_Multiply",
-        "projection_inverse_BoxInt_proj_0",
+        "primitive_Prims.op_Subtraction", "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "24dcb6e25f15d5219b4aa832ace2f6cc"
+      "db07ee989184632c4b57cf09f113f293"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_multi_lemma_load4_simplify_rp",
@@ -702,7 +702,7 @@
         "typing_Hacl.Spec.Poly1305.Vec.prime"
       ],
       0,
-      "03f2f008f358b64a3c4df84b7dc29a5a"
+      "84d9c99e852af7c5020f96db7e8cee0f"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_multi_lemma_load4_simplify",
@@ -732,7 +732,7 @@
         "typing_Hacl.Spec.Poly1305.Vec.size_key"
       ],
       0,
-      "4efaa0e90627da25ad833aaecf8719f9"
+      "4446f1c3efe16cd4da483069e29c699f"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_repeat_blocks_multi_lemma1",
@@ -801,9 +801,9 @@
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
+        "refinement_interpretation_Tm_refine_01badc4546f52c3bbe22ec2945aeaa13",
         "refinement_interpretation_Tm_refine_1d83d3868cb27f537fad699cc7a6d9c2",
         "refinement_interpretation_Tm_refine_316873b8dcd725f8421b97e5616886bd",
-        "refinement_interpretation_Tm_refine_43fddb39737c4485d76118fbef24283a",
         "refinement_interpretation_Tm_refine_5514fbe9e08dfda40f950a7b9f1b2b98",
         "refinement_interpretation_Tm_refine_5a4fe33be2b93c781e552e491bb9dd31",
         "refinement_interpretation_Tm_refine_8ae4abcfc6bc8d4903b7e1f40e070ec2",
@@ -829,7 +829,7 @@
         "typing_tok_Lib.IntTypes.SEC@tok", "well-founded-ordering-on-nat"
       ],
       0,
-      "8f3adefea6efd890160448a357432c08"
+      "2e180328b8396d7eb304ca62a1cd4e98"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_repeat_blocks_multi_lemma2",
@@ -880,6 +880,7 @@
         "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "constructor_distinct_Lib.IntTypes.U32",
+        "equality_tok_Lib.IntTypes.SEC@tok",
         "equality_tok_Lib.IntTypes.U32@tok",
         "equation_Hacl.Spec.Poly1305.Vec.compute_r2",
         "equation_Hacl.Spec.Poly1305.Vec.compute_rw",
@@ -892,7 +893,6 @@
         "equation_Hacl.Spec.Poly1305.Vec.load_elem2",
         "equation_Hacl.Spec.Poly1305.Vec.normalize_2",
         "equation_Hacl.Spec.Poly1305.Vec.pfelem",
-        "equation_Hacl.Spec.Poly1305.Vec.prime",
         "equation_Hacl.Spec.Poly1305.Vec.size_block",
         "equation_Hacl.Spec.Poly1305.Vec.size_key",
         "equation_Hacl.Spec.Poly1305.Vec.update1",
@@ -919,8 +919,8 @@
         "projection_inverse_BoxInt_proj_0",
         "refinement_interpretation_Tm_refine_316873b8dcd725f8421b97e5616886bd",
         "refinement_interpretation_Tm_refine_3321cbe2f573e3c988fd0895bf1f0cf9",
+        "refinement_interpretation_Tm_refine_4236f2b56ac0bb0846068c37ae0d3cda",
         "refinement_interpretation_Tm_refine_4e5c3e8598e92f409e229602e9d2bc12",
-        "refinement_interpretation_Tm_refine_50cf164d2038855276733379cd0db783",
         "refinement_interpretation_Tm_refine_528d1ac7a4a801fe55aa0f436f85ad2a",
         "refinement_interpretation_Tm_refine_5514fbe9e08dfda40f950a7b9f1b2b98",
         "refinement_interpretation_Tm_refine_5a4fe33be2b93c781e552e491bb9dd31",
@@ -955,7 +955,7 @@
         "well-founded-ordering-on-nat"
       ],
       0,
-      "4ef3fe644ef5ccc24a3d06b479f1631a"
+      "a517bc46eee4e1dfce2c980e581a21fc"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.poly_update_repeat_blocks_multi_lemma4",
@@ -1015,6 +1015,7 @@
         "Prims_interpretation_Tm_arrow_9cb3c953faf527c316d427b2ce8bd81b",
         "Prims_pretyping_ae567c2fb75be05905677af440075565",
         "constructor_distinct_Lib.IntTypes.U32",
+        "equality_tok_Lib.IntTypes.SEC@tok",
         "equality_tok_Lib.IntTypes.U32@tok",
         "equation_Hacl.Spec.Poly1305.Vec.compute_r4",
         "equation_Hacl.Spec.Poly1305.Vec.compute_rw",
@@ -1052,10 +1053,9 @@
         "primitive_Prims.op_Multiply", "primitive_Prims.op_Subtraction",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_0dff3ca62b83b0137e400c8e8dcc06c4",
         "refinement_interpretation_Tm_refine_316873b8dcd725f8421b97e5616886bd",
         "refinement_interpretation_Tm_refine_3321cbe2f573e3c988fd0895bf1f0cf9",
-        "refinement_interpretation_Tm_refine_4856e6d54cfe2286183ea3076542d493",
+        "refinement_interpretation_Tm_refine_46b29afe2faf70b62a3d0e2cca56a3a1",
         "refinement_interpretation_Tm_refine_4b474622a4b339183a49f75c726d5638",
         "refinement_interpretation_Tm_refine_528d1ac7a4a801fe55aa0f436f85ad2a",
         "refinement_interpretation_Tm_refine_5514fbe9e08dfda40f950a7b9f1b2b98",
@@ -1073,8 +1073,6 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
         "refinement_interpretation_Tm_refine_d856f709de20bfa4e940d47b1570ef4d",
         "refinement_interpretation_Tm_refine_d8d83307254a8900dd20598654272e42",
-        "refinement_interpretation_Tm_refine_e1c0ab48424a3985f4f81f4601d44112",
-        "token_correspondence_Hacl.Spec.Poly1305.Vec.pfadd",
         "token_correspondence_Hacl.Spec.Poly1305.Vec.pfmul",
         "token_correspondence_Hacl.Spec.Poly1305.Vec.update1",
         "token_correspondence_Hacl.Spec.Poly1305.Vec.updaten",
@@ -1093,7 +1091,7 @@
         "well-founded-ordering-on-nat"
       ],
       0,
-      "d496c870766c4e9d9705ac067c47a047"
+      "233d4664a22e9b3056e00f0c809d2c9d"
     ],
     [
       "Hacl.Spec.Poly1305.Equiv.Lemmas.normalize_4_lemma",
