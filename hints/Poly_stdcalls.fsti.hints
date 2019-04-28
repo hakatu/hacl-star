@@ -33,7 +33,7 @@
         "typing_FStar.Seq.Base.length"
       ],
       0,
-      "cf4b6498d263137a9f1faba2f5d99d5c"
+      "ed31e702357560ae0d874220d243c9b8"
     ],
     [
       "Poly_stdcalls.math_aux",
@@ -60,7 +60,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "19a7a33ddec36705eceb2e257934c7a4"
+      "33e83d1d6dbe2e59c5066f3dc7343bf7"
     ],
     [
       "Poly_stdcalls.x64_poly1305",
@@ -84,8 +84,7 @@
         "equation_Interop.Types.get_downview",
         "equation_Interop.Types.view_n", "equation_LowStar.Buffer.buffer",
         "equation_LowStar.Buffer.trivial_preorder", "equation_Prims.nat",
-        "equation_Prims.pos", "equation_Views.down_view8",
-        "equation_Views.up_view64",
+        "equation_Views.down_view8", "equation_Views.up_view64",
         "equation_X64.Poly1305.Util.readable_words",
         "equation_with_fuel_Prims.pow2.fuel_instrumented",
         "function_token_typing_FStar.UInt8.t",
@@ -107,15 +106,13 @@
         "refinement_interpretation_Tm_refine_009542ee831bffde354c6d75f27dfb04",
         "refinement_interpretation_Tm_refine_a347709bfeba48709474ad26f4f6be87",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
-        "refinement_interpretation_Tm_refine_f048236b5f8051f83b495ea5eaa6127b",
-        "token_correspondence_Prims.pow2.fuel_instrumented",
         "typing_FStar.UInt64.v", "typing_Interop.Types.down_view",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.loc_buffer",
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "0ec50f1d1f871f4c921c8954acc89bf0"
+      "f43ec4c901c9650151d5082661a0121e"
     ]
   ]
 ]

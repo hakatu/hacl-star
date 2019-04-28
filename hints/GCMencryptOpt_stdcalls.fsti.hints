@@ -1,5 +1,5 @@
 [
-  "°8öëoZ[Jd$¥Õûsýþ",
+  "Û«w\u001cü}\u0012iÊb U€\u0010ý%",
   [
     [
       "GCMencryptOpt_stdcalls.length_aux",
@@ -27,7 +27,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "29b56ce45b07fa361afaf65d27bc809a"
+      "34fb95f67715b31e2a63a761ee4ab723"
     ],
     [
       "GCMencryptOpt_stdcalls.length_aux2",
@@ -55,7 +55,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "26ecff955f24a1b519ee52432e41af48"
+      "c08824a100da0a8c5318ea12249e19a5"
     ],
     [
       "GCMencryptOpt_stdcalls.length_aux3",
@@ -83,7 +83,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "938ebed30a195cd1ca6afa2d16cdc367"
+      "fd9a0929acd4faffd1580d8ab47ef137"
     ],
     [
       "GCMencryptOpt_stdcalls.length_aux4",
@@ -111,7 +111,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "9a44eae1075a1d02f08f7ddd96d0dbd2"
+      "40fb8a891a384ce8b4bbb234c85971f4"
     ],
     [
       "GCMencryptOpt_stdcalls.length_aux5",
@@ -139,7 +139,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "068c21fd552e1930b03eeb2ad5ebd0a6"
+      "b0606457080f392e206652a9b97f1a5f"
     ],
     [
       "GCMencryptOpt_stdcalls.encrypt_opt_stdcall_st",
@@ -179,7 +179,7 @@
         "refinement_interpretation_Tm_refine_36f208f2b1019ab7b5d9be73f4c89349",
         "refinement_interpretation_Tm_refine_414d0a9f578ab0048252f8c8f552b99f",
         "refinement_interpretation_Tm_refine_5514fbe9e08dfda40f950a7b9f1b2b98",
-        "refinement_interpretation_Tm_refine_927fba2fd75c41b2d0a1979fb851fa84",
+        "refinement_interpretation_Tm_refine_9dd93db2ae5723087ad43f3614368f2d",
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d",
         "refinement_interpretation_Tm_refine_f718497de94ca05cd506a03268a8384c",
         "typing_FStar.Ghost.reveal", "typing_FStar.Seq.Base.length",
@@ -189,10 +189,11 @@
         "typing_Tm_abs_45bc106d66ff9e2c3c9f4100524b39b3",
         "typing_Tm_abs_e17010ae1f40f6860845e34b0c21d194",
         "typing_X64.CPU_Features_s.aesni_enabled",
+        "typing_X64.CPU_Features_s.avx_enabled",
         "typing_X64.CPU_Features_s.pclmulqdq_enabled"
       ],
       0,
-      "ac14c4b6241477fc1de6f4a7ed0d9bd1"
+      "3fb090a87d82a3a70786499ca44976bc"
     ]
   ]
 ]

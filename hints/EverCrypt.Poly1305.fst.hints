@@ -8,7 +8,7 @@
       0,
       [ "@query" ],
       0,
-      "593f0f2a203c38e7ae5050b279675efd"
+      "f55585fc6d43d573b4eeb38103fc52b1"
     ],
     [
       "EverCrypt.Poly1305.poly1305_vale",
@@ -228,14 +228,14 @@
         "typing_FStar.Monotonic.HyperStack.is_stack_region",
         "typing_FStar.Monotonic.HyperStack.live_region",
         "typing_FStar.Monotonic.HyperStack.remove_elt",
-        "typing_FStar.Seq.Base.append", "typing_FStar.Seq.Base.length",
-        "typing_FStar.Seq.Base.slice", "typing_FStar.Set.complement",
-        "typing_FStar.Set.intersect", "typing_FStar.Set.mem",
-        "typing_FStar.Set.singleton", "typing_FStar.Set.union",
-        "typing_FStar.UInt.fits", "typing_FStar.UInt.mod",
-        "typing_FStar.UInt32.div", "typing_FStar.UInt32.mul",
-        "typing_FStar.UInt32.rem", "typing_FStar.UInt32.uint_to_t",
-        "typing_FStar.UInt32.v", "typing_FStar.UInt8.uint_to_t",
+        "typing_FStar.Seq.Base.append", "typing_FStar.Seq.Base.slice",
+        "typing_FStar.Set.complement", "typing_FStar.Set.intersect",
+        "typing_FStar.Set.mem", "typing_FStar.Set.singleton",
+        "typing_FStar.Set.union", "typing_FStar.UInt.fits",
+        "typing_FStar.UInt.mod", "typing_FStar.UInt32.div",
+        "typing_FStar.UInt32.mul", "typing_FStar.UInt32.rem",
+        "typing_FStar.UInt32.uint_to_t", "typing_FStar.UInt32.v",
+        "typing_FStar.UInt8.uint_to_t",
         "typing_Hacl.Spec.Poly1305.Vec.size_block",
         "typing_Hacl.Spec.Poly1305.Vec.size_key",
         "typing_Lib.ByteSequence.nat_from_bytes_le",
@@ -261,7 +261,7 @@
         "typing_tok_Lib.IntTypes.SEC@tok"
       ],
       0,
-      "d966683651f1a95271f2bb4543d1ef84"
+      "3c8b9e4f1c22701962fdba72a709dfc9"
     ],
     [
       "EverCrypt.Poly1305.poly1305",
@@ -277,7 +277,7 @@
         "typing_LowStar.Buffer.trivial_preorder"
       ],
       0,
-      "92ad7d15084bd0406809818f01a786f0"
+      "664c1715612b19c422e7684014fd05c9"
     ],
     [
       "EverCrypt.Poly1305.poly1305",
@@ -286,7 +286,7 @@
       0,
       [ "@query" ],
       0,
-      "f99cfdcf25f14f422393fbadb82fefb3"
+      "57378b31222ca90c8d43f569285231bb"
     ],
     [
       "EverCrypt.Poly1305.poly1305",
@@ -366,7 +366,7 @@
         "typing_tok_Lib.Buffer.MUT@tok", "unit_inversion", "unit_typing"
       ],
       0,
-      "a33308d128a861672f83ce65d8e40373"
+      "c18f8cec4a15ba962acbe050f28953f0"
     ]
   ]
 ]

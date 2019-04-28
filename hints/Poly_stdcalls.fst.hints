@@ -33,7 +33,7 @@
         "typing_FStar.Seq.Base.length"
       ],
       0,
-      "ca11f0a680055aa8b80dabc161dbbb40"
+      "230f8fff4792c3b1725db37cf988d517"
     ],
     [
       "Poly_stdcalls.math_aux",
@@ -60,7 +60,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "63302fc445d59e09c12dd5cde2476475"
+      "b9735a504ba6059bacc2fc8975d9c692"
     ],
     [
       "Poly_stdcalls.x64_poly1305",
@@ -111,7 +111,7 @@
         "typing_tok_Interop.Types.TUInt8@tok"
       ],
       0,
-      "25b9af40e392011e39a0eb654811991c"
+      "f057b6214b151f0ade6c1520668a0c88"
     ],
     [
       "Poly_stdcalls.x64_poly1305",
@@ -144,6 +144,11 @@
         "equality_tok_Interop.Types.TUInt64@tok",
         "equality_tok_Interop.Types.TUInt8@tok",
         "equality_tok_X64.Machine_s.Public@tok",
+        "equality_tok_X64.Machine_s.R10@tok",
+        "equality_tok_X64.Machine_s.R11@tok",
+        "equality_tok_X64.Machine_s.R12@tok",
+        "equality_tok_X64.Machine_s.R13@tok",
+        "equality_tok_X64.Machine_s.R14@tok",
         "equality_tok_X64.Machine_s.R8@tok",
         "equality_tok_X64.Machine_s.R9@tok",
         "equality_tok_X64.Machine_s.Rax@tok",
@@ -239,13 +244,10 @@
         "proj_equation_Interop.X64.Rel_of_reg",
         "proj_equation_LowStar.BufferView.Down.View_n",
         "proj_equation_LowStar.BufferView.Up.View_n",
-        "proj_equation_X64.Vale.State.Mkstate_flags",
         "proj_equation_X64.Vale.State.Mkstate_mem",
         "proj_equation_X64.Vale.State.Mkstate_memTaint",
         "proj_equation_X64.Vale.State.Mkstate_ok",
         "proj_equation_X64.Vale.State.Mkstate_regs",
-        "proj_equation_X64.Vale.State.Mkstate_stack",
-        "proj_equation_X64.Vale.State.Mkstate_xmms",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
         "projection_inverse_FStar.Pervasives.Native.Some_a",
@@ -262,7 +264,6 @@
         "projection_inverse_Prims.Mkdtuple2__2",
         "projection_inverse_X64.Vale.State.Mkstate_mem",
         "projection_inverse_X64.Vale.State.Mkstate_memTaint",
-        "projection_inverse_X64.Vale.State.Mkstate_ok",
         "projection_inverse_X64.Vale.State.Mkstate_regs",
         "refinement_interpretation_Tm_refine_009542ee831bffde354c6d75f27dfb04",
         "refinement_interpretation_Tm_refine_19d2c1589aaba820a83c4fb36548eef6",
@@ -285,8 +286,8 @@
         "token_correspondence_Interop.X64.arg_of_register",
         "token_correspondence_Interop.X64.register_of_arg_i",
         "typing_FStar.Pervasives.Native.__proj__Some__item__v",
-        "typing_FStar.Seq.Base.index", "typing_FStar.Seq.Base.length",
-        "typing_FStar.UInt.fits", "typing_FStar.UInt64.v",
+        "typing_FStar.Seq.Base.index", "typing_FStar.Seq.Base.init",
+        "typing_FStar.Seq.Base.length", "typing_FStar.UInt64.v",
         "typing_Interop.Assumptions.win",
         "typing_Interop.Types.base_typ_as_type",
         "typing_Interop.Types.down_view",
@@ -300,15 +301,14 @@
         "typing_Tm_abs_17216dbf39a81b70a89d39667a86d7e0",
         "typing_Tm_abs_7f9f8557d54f50cc8836ba8717c934b6",
         "typing_Tm_abs_845666358e1c3f8ef563da2015854075",
-        "typing_Vale.AsLowStar.LowStarSig.nat_to_uint",
         "typing_Vale.AsLowStar.LowStarSig.nat_to_uint_seq_t",
         "typing_Vale.AsLowStar.LowStarSig.view_of_base_typ",
-        "typing_Vale.AsLowStar.MemoryHelpers.low_buffer_read",
         "typing_X64.Memory.buffer_as_seq", "typing_X64.Memory.buffer_length",
         "typing_X64.Memory.buffer_read", "typing_X64.Memory.loc_buffer",
         "typing_X64.MemoryAdapters.as_vale_buffer",
+        "typing_X64.Vale.Regs.sel",
         "typing_X64.Vale.State.__proj__Mkstate__item__mem",
-        "typing_X64.Vale.State.__proj__Mkstate__item__ok",
+        "typing_X64.Vale.State.__proj__Mkstate__item__regs",
         "typing_tok_Interop.Types.TUInt64@tok",
         "typing_tok_Interop.Types.TUInt8@tok",
         "typing_tok_X64.Machine_s.R8@tok", "typing_tok_X64.Machine_s.R9@tok",
@@ -318,7 +318,7 @@
         "typing_tok_X64.Machine_s.Rsi@tok"
       ],
       0,
-      "a6c50b221e7fde8e905758e18ff60828"
+      "7f2b8addd1320dbeef692b01c766d3e0"
     ]
   ]
 ]

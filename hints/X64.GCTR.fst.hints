@@ -1,5 +1,5 @@
 [
-  "Ú\b\u0007\u001dL˘C6W!¢Ω\u001fGßÿ",
+  "ëÔÙ≠µƒVÏ\u0004Æùtß\u001f[y",
   [
     [
       "X64.GCTR.va_lemma_init_ctr",
@@ -57,7 +57,7 @@
         "typing_X64.Vale.Xmms.eta_sel", "unit_inversion", "unit_typing"
       ],
       0,
-      "8250905b66dffd6df83fd49b872c07e7"
+      "676bbb12d7a62ac9e71173e8ff474996"
     ],
     [
       "X64.GCTR.va_wpMonotone_init_ctr",
@@ -79,7 +79,7 @@
         "typing_tok_X64.Machine_s.R12@tok", "unit_typing"
       ],
       0,
-      "6d49bd7884d44af6c35cb5b4adc7589a"
+      "4464189d15ed7c71a00a9a71527a6fb8"
     ],
     [
       "X64.GCTR.va_wpCompute_init_ctr",
@@ -93,7 +93,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "73c8fbd1aafce7fa5dc7ad92c7ac1543"
+      "964ab42e4bccad17ac5f153ea02289b9"
     ],
     [
       "X64.GCTR.va_wpProof_init_ctr",
@@ -105,7 +105,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "5a89b7c027ff263efb89dc2392313a3d"
+      "039f32d4a33aaa3a48e64746053a49d6"
     ],
     [
       "X64.GCTR.va_wpProof_init_ctr",
@@ -166,7 +166,7 @@
         "typing_tok_X64.Machine_s.R12@tok", "unit_typing"
       ],
       0,
-      "87aaaf8c72618e356132f4f27deabd7c"
+      "561043a706256381bd92a58e9df19bc6"
     ],
     [
       "X64.GCTR.va_lemma_Inc32",
@@ -226,7 +226,7 @@
         "typing_X64.Vale.Xmms.sel"
       ],
       0,
-      "28b7f4d0760b7facf6fa06d456951226"
+      "efe3eba416cf244cbaa170725e5b4132"
     ],
     [
       "X64.GCTR.va_wpMonotone_Inc32",
@@ -240,7 +240,7 @@
         "typing_X64.Vale.Decls.va_upd_operand_xmm", "unit_typing"
       ],
       0,
-      "0668ae5ba83b3e0cae605c297ab470c1"
+      "c400d49c1a316722a04c3670906d412c"
     ],
     [
       "X64.GCTR.va_wpCompute_Inc32",
@@ -256,7 +256,7 @@
         "refinement_interpretation_X64.Machine_s_Tm_refine_f0a4eeefab9c63f31c350a802a4d45dd"
       ],
       0,
-      "f977d95ceb154b5824b3f34f78107909"
+      "0ab35b77a014a4306e182ff49b63b40e"
     ],
     [
       "X64.GCTR.va_wpProof_Inc32",
@@ -268,7 +268,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "b2711e8ad31cd90d0ec2ecff35667c13"
+      "25ce1adea98cb86a543441edbf3b4f4c"
     ],
     [
       "X64.GCTR.va_wpProof_Inc32",
@@ -320,7 +320,7 @@
         "typing_X64.Vale.Xmms.sel", "typing_X64.Vale.Xmms.upd", "unit_typing"
       ],
       0,
-      "c7d1df55e8e3526e5189665730ee9c39"
+      "69749b5d447e4e3b435ffe532a1297d0"
     ],
     [
       "X64.GCTR.va_qcode_gctr_register",
@@ -333,7 +333,7 @@
         "projection_inverse_BoxInt_proj_0"
       ],
       0,
-      "ed215bddb14f8e9d79c9572bfa94f8d9"
+      "6039ecc9f1a72acfc2a0fd2fb122d6fd"
     ],
     [
       "X64.GCTR.va_lemma_gctr_register",
@@ -348,7 +348,7 @@
         "refinement_interpretation_Tm_refine_09f2fa6ff47a2e4dd29427a1c0ed2718"
       ],
       0,
-      "5dacc18fd455c36bcded69b7ad96a6b5"
+      "5c38e429d978e43ffa97b64d1fb5d2f4"
     ],
     [
       "X64.GCTR.va_lemma_gctr_register",
@@ -439,7 +439,7 @@
         "typing_tok_X64.Machine_s.R8@tok", "unit_inversion", "unit_typing"
       ],
       0,
-      "6fc44f714493c4391d80f5658b65395e"
+      "84e75c0cc3aeb313f68425b5ea622094"
     ],
     [
       "X64.GCTR.va_wp_gctr_register",
@@ -452,7 +452,7 @@
         "projection_inverse_BoxInt_proj_0"
       ],
       0,
-      "6a0a62616e0eb038fca421a8dade9a55"
+      "26d1c3d167e9aa19e46a04cce81cfd7c"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_register",
@@ -475,7 +475,7 @@
         "typing_tok_X64.Machine_s.R12@tok", "unit_typing"
       ],
       0,
-      "816cc0b788efa80b7c017ffc453911c7"
+      "7d12a733cca73be8e137913d45f1686f"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_register",
@@ -489,7 +489,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "b7ec13dc422b189681f9e339d68c50ed"
+      "f11413f0f6ba0e47eff0b96f474bb023"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_register",
@@ -501,7 +501,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "c835d961615d17d0784329452e11c4d1"
+      "e61f681e400d85980927d1c2ca8a290f"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_register",
@@ -569,7 +569,7 @@
         "typing_tok_X64.Machine_s.R12@tok", "unit_typing"
       ],
       0,
-      "a9f48dd82a01cd176f759860dda2ef23"
+      "75601cd9f7a7db19a59995e15af693c9"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core_body",
@@ -582,7 +582,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "fe1d39031d826a8e0fddfe956f92fe91"
+      "0a5751a51a6679cf39d2f4ea21cd5e39"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core_body",
@@ -747,7 +747,7 @@
         "unit_typing", "well-founded-ordering-on-nat"
       ],
       0,
-      "bbf179cf816d5dbd721197348813b7a3"
+      "50712d62403cae076305ed55b54ac89e"
     ],
     [
       "X64.GCTR.va_wp_gctr_core_body",
@@ -760,7 +760,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "97e1ac9f18bedc2558a5ea26c5ecfc06"
+      "512fe33e0209df11d097effa176e8d21"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_core_body",
@@ -789,7 +789,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "54a045be3085be7da6fbaf6cd28530c9"
+      "54022b7292c7114f9932648b1ffbc059"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_core_body",
@@ -803,7 +803,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "f0222b00905c1192cc0ef4db3ffe02e7"
+      "62a44644cb28fc878e93c9e70825c08b"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core_body",
@@ -815,7 +815,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "cbc1d9e90b008a23b3007f40fbe1272e"
+      "8c0fd8cd0114d082c1ba17cc7a60dbeb"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core_body",
@@ -911,7 +911,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "3e7b32401ab4e827923f1a37cca788c2"
+      "a56d41cbe9b8f2ff6690847db41f26e7"
     ],
     [
       "X64.GCTR.va_code_gctr_core_while",
@@ -926,7 +926,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "cb99cffa3646e10ac26ac6266c34d153"
+      "06c931f27cf24bd7b7a4946647f4ed47"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_while",
@@ -944,7 +944,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "67f08d07579af6dcbde8c27ea2e82257"
+      "37ed4594365c72c97b2c92683d3e6fdf"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_while",
@@ -959,7 +959,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "7d19d426a075bd5dbdb60f16e7729cfe"
+      "af1019568e7d7cf91cdd67906b5517e0"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_while",
@@ -974,7 +974,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "22727ecea9d9436bee9e553c0dec6f80"
+      "2c913ff0a5656b15406244105ee9d682"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core_while",
@@ -987,7 +987,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "2d3593fdf2cb8436b2c73ec1f4ba82e6"
+      "23da9b4a7926192f8348b663ef47bd9b"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core_while",
@@ -1114,7 +1114,7 @@
         "typing_tok_X64.Machine_s.Secret@tok", "unit_typing"
       ],
       0,
-      "57c089254f0307e0fbebdf527408e5e5"
+      "637a463dbde17e190c74684340e71e9d"
     ],
     [
       "X64.GCTR.va_wp_gctr_core_while",
@@ -1127,7 +1127,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "0fbe3134f467ccb70d6685c1c5dc0e0f"
+      "6b6f5309d4734f10707b034a7b780949"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_core_while",
@@ -1156,7 +1156,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "c04b968a185e27d46c3fb2a65850d631"
+      "d91c3d3e2c00b72f117e921fa57e70d5"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_core_while",
@@ -1171,7 +1171,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "876be3db4ccf4dbed46814abccd80b18"
+      "23c14f55207ea4d4f023a3e5e7b55bfb"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core_while",
@@ -1183,7 +1183,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "26b233015079775dca8114f43de31601"
+      "9527c20b233b691603234541a984dfef"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core_while",
@@ -1279,7 +1279,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "1eb09107eb9b4123613618229319d6a6"
+      "e81a0ab4a4e8d91bf8724500c57b8f57"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core",
@@ -1300,7 +1300,7 @@
         "typing_tok_X64.Machine_s.Rcx@tok"
       ],
       0,
-      "bb1abaf06f0403cdd180eb0ec0be068a"
+      "bd2ca73dd5f75235dd3dbf8487a12161"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core",
@@ -1427,7 +1427,7 @@
         "typing_tok_X64.Machine_s.Secret@tok", "unit_typing"
       ],
       0,
-      "115a184cbff2495233b26808f9f0737f"
+      "2b1087f65ea08fd7bd39340c3e93be9a"
     ],
     [
       "X64.GCTR.va_wp_gctr_core",
@@ -1465,7 +1465,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok"
       ],
       0,
-      "bc43489e4213cf998d7fb84e5161fade"
+      "a77a61b3ae620559f7fe42ea310000e3"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_core",
@@ -1496,7 +1496,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "f6627a15d4e703c9928d6f79b2a2e19f"
+      "aa6a988a794de67eabba9acd887ac6f7"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_core",
@@ -1510,7 +1510,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "9ba43429da8e3911bc3f31c5b5856122"
+      "b3bb0663c39b3baece95421b3fa3ec41"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core",
@@ -1522,7 +1522,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "fd1f4b8dbb1684e3d472690ae8f1ebd4"
+      "9bc08c16e8bd8095772fe0700dddf67f"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core",
@@ -1640,7 +1640,7 @@
         "typing_tok_X64.Vale.QuickCode.Mod_mem@tok", "unit_typing"
       ],
       0,
-      "69ab6c142b733c37353c39cb7f913fce"
+      "a7759489155b796b07d52a88cccc2a75"
     ],
     [
       "X64.GCTR.va_code_gctr_core_opt",
@@ -1655,7 +1655,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "f3b93910db254136fd61ae9b576c7d9c"
+      "73b4c8e932da8fa0bc6af4c0b73ee18b"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1681,7 +1681,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok"
       ],
       0,
-      "c76f0d8fbe609b85a5a79dd172e32394"
+      "73eefdac9a2f51ca3377771c0db33d1d"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1696,7 +1696,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "2992cec5f165a9156a17269a5acacd94"
+      "a1f7f07c7e853518caa8f70c620c10cf"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1711,7 +1711,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "e4a3bb4580ea99e4233dbd0e4f903023"
+      "afa54d18640374f11f4794b66c3eadb6"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1726,7 +1726,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "12c33360cb0e4b7f270c3c2101f2fdaa"
+      "3c94b9a40cd6c913f9b5e27f7558add8"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1741,7 +1741,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "dd4161483e14c9bcefbd64b636e50eba"
+      "222655dc827dfe7ac9ab8e1fc435210d"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1756,7 +1756,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "16f04b5c0c24ccd13dfb5f23d6bf9015"
+      "2b921c836d58eed0a7df5bbbc057491b"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1771,7 +1771,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "eb726651dce7d5163e7ff95f1d5d6050"
+      "a482e6a9e83e9477845932a2d1b06f26"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1786,7 +1786,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "f47a9c13d78a680ef431a3294e2fd99f"
+      "d6d435382a543c4650f1381b4200321d"
     ],
     [
       "X64.GCTR.va_qcode_gctr_core_opt",
@@ -1801,7 +1801,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "151ed747efcdef1650440a32f1807bba"
+      "0f13af50865e80dfbdc7cc6adbf849e9"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core_opt",
@@ -1810,7 +1810,7 @@
       0,
       [ "@query" ],
       0,
-      "e1da90a71322b82fc03bb6b8a5f72fe8"
+      "d9d6721c6a886c091c52aba0ee611a37"
     ],
     [
       "X64.GCTR.va_lemma_gctr_core_opt",
@@ -1859,6 +1859,7 @@
         "function_token_typing_Prims.__cache_version_number__",
         "function_token_typing_Prims.int",
         "function_token_typing_Words_s.nat32", "int_inversion", "int_typing",
+        "lemma_Math.Poly2.Lemmas.lemma_ones_degree",
         "lemma_X64.Memory.loc_includes_refl",
         "lemma_X64.Memory.modifies_buffer_addr",
         "lemma_X64.Memory.modifies_buffer_elim",
@@ -1931,7 +1932,7 @@
         "unit_typing"
       ],
       0,
-      "96a1e0793f8d52004881ea04b1cf2498"
+      "d3e7ba8caeebcd13dbe89fec21de7fe5"
     ],
     [
       "X64.GCTR.va_wp_gctr_core_opt",
@@ -1940,7 +1941,7 @@
       0,
       [ "@query" ],
       0,
-      "a7e32cbdf80943f5b9ce12aa0a1833a7"
+      "dc31f35ea7971ecc68e35f2fbec6d2e1"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_core_opt",
@@ -1979,7 +1980,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "b42c67ec68a32cc833b43d707d81f844"
+      "f4c5237a39740ea750bb8195e8b4f70b"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_core_opt",
@@ -1993,7 +1994,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "c34750d3374aa0133941604e1531a778"
+      "8c74a75650800f07668154988307b390"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core_opt",
@@ -2005,7 +2006,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "1ee430835e10a41b5c9190354cdfcb88"
+      "d1e8455aa09f4502387efeb12bc5bb35"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_core_opt",
@@ -2100,7 +2101,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "caae5df9cc10045f2b7afea4666a1bf1"
+      "268115a3804803dce43f27bc6f5f28db"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_extra_work",
@@ -2113,7 +2114,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "b1e87a5496a6235b6114aa9f56004ba5"
+      "f0e8564c6c8fbebcf6cad6db5ba5a17e"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_extra_work",
@@ -2122,7 +2123,7 @@
       0,
       [ "@query" ],
       0,
-      "375c7224fb55e607958caac51e8c2994"
+      "628832a087b02844099d7e910aa0e05e"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes_extra_work",
@@ -2143,7 +2144,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "f414c97cb4120199516002b9cac423d0"
+      "1817b1a9dcc6f236f08ec16fbb2fa774"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes_extra_work",
@@ -2256,7 +2257,7 @@
         "unit_typing"
       ],
       0,
-      "480e0ae444897c8317d507afd3de2b2a"
+      "1dbc557e018589736b7a9c847472dc65"
     ],
     [
       "X64.GCTR.va_wp_gctr_bytes_extra_work",
@@ -2269,7 +2270,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "930da2314e35f85367ed827d4a8e4d22"
+      "fc756e752b1fd9de2ea29c38efaa2370"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_bytes_extra_work",
@@ -2295,7 +2296,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "8c13fab79ddd21209d4fc69ee18f1c01"
+      "6b4d3a2546527040aa82e6a382cee65d"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_bytes_extra_work",
@@ -2309,7 +2310,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "fcb216ba4917c4e603754303f5c06c9c"
+      "03ecc255359c2e62a7ba4ec070704195"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes_extra_work",
@@ -2321,7 +2322,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "a105894666726e1f3b5fbb1e630dd84f"
+      "80ecee37f9d6b8d5bd2a8611088bfce3"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes_extra_work",
@@ -2401,7 +2402,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "61fe046b3217c1c15f4bd43349a9c490"
+      "afde7de36de7589f53a6cb295b78abc7"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_extra",
@@ -2414,7 +2415,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "cc0bfe7a4067bbf5e3bf69b64eb9a667"
+      "fd943b1e09d61c78ea041d7acc535f71"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_extra",
@@ -2428,7 +2429,7 @@
         "refinement_interpretation_Tm_refine_47109dd5837e560f72664f314778a899"
       ],
       0,
-      "95753faf09b06fd9f8692b398530a653"
+      "5ed08dc45c42a2199845a8142e31f2c0"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_extra",
@@ -2452,7 +2453,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "6bdd3a76828f093052b7f1c146dc2d94"
+      "ca0bf26c22b41102e2a2096fa1ae9942"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes_extra",
@@ -2501,7 +2502,7 @@
         "typing_tok_Interop.Types.TUInt128@tok"
       ],
       0,
-      "16b48fa9c0eb9cebbf44e3eae5c0f321"
+      "115fa0d1730ceb5c8bb2813dd03e9e48"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes_extra",
@@ -2617,7 +2618,7 @@
         "unit_typing"
       ],
       0,
-      "da86145c474b9a54f04768bcd717b59d"
+      "92d02d0bbba6e2b516ad1851d56dd3b8"
     ],
     [
       "X64.GCTR.va_wp_gctr_bytes_extra",
@@ -2664,7 +2665,7 @@
         "typing_tok_Interop.Types.TUInt128@tok"
       ],
       0,
-      "5ba194886ebacde77e691a8daed84cf9"
+      "94ac2eaa51aab5d5f754c3797c0c7743"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_bytes_extra",
@@ -2690,7 +2691,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "77ffaf6a15d613df633059217d7185e7"
+      "67da6c2a05c46cd29e4a300702c8195b"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_bytes_extra",
@@ -2704,7 +2705,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "889670b8f8cc6a0d0d16bf4b68d9350c"
+      "ef7bd39c7c75cfb8f438abb0c89c95f1"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes_extra",
@@ -2716,7 +2717,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "28afde52b70327eb0704ba29f7bc012d"
+      "51476941b605dd24d12bf3d90145df6c"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes_extra",
@@ -2796,7 +2797,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "0aa987b3a2e42b30e01eb830d149866f"
+      "897d61fcade37bcb27d1417a512bc151"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_no_extra",
@@ -2809,7 +2810,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "d9684b2838d1b76a1d9137ade2ec5f31"
+      "2694599daff1adae4dcc3f33508ebb6f"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_no_extra",
@@ -2818,7 +2819,7 @@
       0,
       [ "@query" ],
       0,
-      "6d2a642baee82b9741b97d8e9853b3e8"
+      "bb6151842a316f5e0e29a7e1461d9aa1"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_no_extra",
@@ -2832,7 +2833,7 @@
         "projection_inverse_BoxInt_proj_0"
       ],
       0,
-      "c7d2a931bf144c68d56b9a2d4fe0f7df"
+      "5719a3c7e95b4f15dfe4846592c4233e"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_no_extra",
@@ -2849,7 +2850,7 @@
         "refinement_interpretation_Prims_Tm_refine_a4038d5aed1633b5ecbb4e499b1c66ad"
       ],
       0,
-      "8b38560accad5f99cd80158e8f6043df"
+      "983ef925f67d20df72d599d429f2e2a2"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes_no_extra",
@@ -2866,7 +2867,7 @@
         "refinement_interpretation_Prims_Tm_refine_a4038d5aed1633b5ecbb4e499b1c66ad"
       ],
       0,
-      "461497d317090448f5c3aa6337b0450c"
+      "1e79e0934cb02ae46407b53eda24e77c"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes_no_extra",
@@ -2915,7 +2916,7 @@
         "typing_tok_Interop.Types.TUInt128@tok"
       ],
       0,
-      "648a5e1b2428ec15b4744e235257137e"
+      "b79fe5947063ae60fc3c8bbfde9cdf45"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes_no_extra",
@@ -2998,7 +2999,7 @@
         "unit_typing"
       ],
       0,
-      "3da964b570649fd9dc0b78a8e9dc3882"
+      "8355b864749c21d157b5971fc376532c"
     ],
     [
       "X64.GCTR.va_wp_gctr_bytes_no_extra",
@@ -3033,7 +3034,7 @@
         "typing_tok_Interop.Types.TUInt128@tok"
       ],
       0,
-      "bfcc44b20179e7c215ed170acf9e2f44"
+      "8e3110a831511aebb51087713c2038ae"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_bytes_no_extra",
@@ -3046,7 +3047,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state", "unit_typing"
       ],
       0,
-      "1ede5f2da053f7951f750379406eaf81"
+      "67dc7ef41a30cd48c4c7622cb0d6d9be"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_bytes_no_extra",
@@ -3060,7 +3061,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "915f9602c7da78f01ee5048dc16ee4e5"
+      "0c256e50743e5827c338556d3521fbd4"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes_no_extra",
@@ -3072,7 +3073,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "08e6b32de0a5eb21e08f469249812c0f"
+      "5b24718611c0aeb791b12da6ea029d1d"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes_no_extra",
@@ -3126,7 +3127,7 @@
         "typing_X64.Vale.State.__proj__Mkstate__item__xmms", "unit_typing"
       ],
       0,
-      "c255e7d782632e38eb7b01827f8004b4"
+      "d6008d9ad0ac542da3b2cb87e15810b9"
     ],
     [
       "X64.GCTR.va_code_gctr_bytes",
@@ -3141,7 +3142,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "bf1b310bb7b78b6d2b401a4a59d92597"
+      "de47e44b0bd1ab7fdc9b5b346cb12314"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3168,7 +3169,7 @@
         "typing_tok_X64.Machine_s.Rcx@tok"
       ],
       0,
-      "79eaaa4dca61bb7975af472d0664b589"
+      "cf2a8e8f97180a550ec0608c2905159f"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3183,7 +3184,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "db64ae276993049b618aa8796c0685ed"
+      "1839041c413ceb3e7b01eea97d5d3b13"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3198,7 +3199,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "cc376713ebb4d42c3747413b84f24bd0"
+      "6a61afeaa3913de424ffcdec042e954e"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3213,7 +3214,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "a16c97a75a69d8c327f265126bbff783"
+      "f666f5bdcef9fae93e2912d31a2793e6"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3228,7 +3229,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "b83dc2e7fdc7777ecbb4ceb63795ec5f"
+      "4f97406345384472636d449ccfcb141f"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3243,7 +3244,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "675258ab88c6aaba8e3efe5f69061877"
+      "6639f5cc528c34756c50e709667b37f1"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3258,7 +3259,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "ab6c8b0d56e8f4268a8c32acf29fdb8c"
+      "208b5dc8abd11a8a25332fa9cc836ca2"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3273,7 +3274,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "2698bd0dd02f07c06ec53aa0f81d8cdc"
+      "d89c6ff20b27fcd8c8d608c0d4b79bf0"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3288,7 +3289,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "6874e3ea2a54fc3f84c4673c997ee2db"
+      "df51a7a0dfcf78278bde8c593ceceec3"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3303,7 +3304,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "48dc5d7d247b147a356694b2f8998c08"
+      "940c7fc78c0a3df2d7260f8dc92b4b69"
     ],
     [
       "X64.GCTR.va_qcode_gctr_bytes",
@@ -3318,7 +3319,7 @@
         "projection_inverse_BoxBool_proj_0"
       ],
       0,
-      "819a8f8cd96e5e0c5795610cdecd7fd6"
+      "b411b3d5e09b80c5d5245cc822c7efdf"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes",
@@ -3332,13 +3333,13 @@
         "function_token_typing_Words_s.nat8", "primitive_Prims.op_LessThan",
         "projection_inverse_BoxBool_proj_0",
         "projection_inverse_BoxInt_proj_0",
-        "refinement_interpretation_Tm_refine_3963f6413a2ca6f2f0a0cf5ccc26917c",
+        "refinement_interpretation_Tm_refine_091d160cd8f647922083c34414530174",
         "refinement_interpretation_Tm_refine_b913a3f691ca99086652e0a655e72f17",
         "typing_FStar.Seq.Base.empty",
         "typing_X64.CPU_Features_s.aesni_enabled"
       ],
       0,
-      "9e32442366373e79c2b36fc9af1a6336"
+      "7842de2ac97a50e174b4186ccf979499"
     ],
     [
       "X64.GCTR.va_lemma_gctr_bytes",
@@ -3453,7 +3454,7 @@
         "unit_typing"
       ],
       0,
-      "8a1aa67c9627d6f03492dbbd89a1d47b"
+      "6c8581b199519e410fe812c217e3f4fc"
     ],
     [
       "X64.GCTR.va_wp_gctr_bytes",
@@ -3491,7 +3492,7 @@
         "typing_X64.Vale.State.__proj__Mkstate__item__ok"
       ],
       0,
-      "579a2a92d1b0b865f0bf6a2cac003ca1"
+      "e9f8b31bf7547be9f5df7ff959155b2a"
     ],
     [
       "X64.GCTR.va_wpMonotone_gctr_bytes",
@@ -3532,7 +3533,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "3c69c42e63578ca6fbb0619069bc5ef5"
+      "22705265b6746ecce1ba948de89fc984"
     ],
     [
       "X64.GCTR.va_wpCompute_gctr_bytes",
@@ -3546,7 +3547,7 @@
         "fuel_guarded_inversion_X64.Vale.State.state"
       ],
       0,
-      "5052de1cc25f5c984905ec36c2d1d557"
+      "5ed7cfa30d9daa80048aad5199cbde1a"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes",
@@ -3558,7 +3559,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "fed7cbb63499e45c06f64aabf74b3e1e"
+      "211f96ff462de4257a1ee1e748c549b7"
     ],
     [
       "X64.GCTR.va_wpProof_gctr_bytes",
@@ -3651,7 +3652,7 @@
         "typing_tok_X64.Machine_s.Rdx@tok", "unit_typing"
       ],
       0,
-      "6690e6b43c9050aad971da1100f04e39"
+      "5d658791492e637ec5aeb208f13d561b"
     ]
   ]
 ]

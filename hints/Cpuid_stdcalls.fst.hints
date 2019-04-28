@@ -20,7 +20,7 @@
         "typing_Interop.Assumptions.win"
       ],
       0,
-      "13ca7fcea609f0c7cb80585bd44a1562"
+      "ad1da10a5f94b0939ae1090478407d97"
     ],
     [
       "Cpuid_stdcalls.check_sha",
@@ -41,7 +41,7 @@
         "typing_Interop.Assumptions.win"
       ],
       0,
-      "e5524ba179d9f44e27975015eaa60d36"
+      "f9ed1af0dcc80a9b563169a97c73794d"
     ],
     [
       "Cpuid_stdcalls.check_adx_bmi2",
@@ -62,7 +62,7 @@
         "typing_Interop.Assumptions.win"
       ],
       0,
-      "e84a498886f2a74ff9268bb51199acee"
+      "3f2dc9a61f1fc2d3be4f8bdbffdf6fb4"
     ],
     [
       "Cpuid_stdcalls.check_avx",
@@ -83,7 +83,7 @@
         "typing_Interop.Assumptions.win"
       ],
       0,
-      "1a402a7407d2f6de4ef3f4703050a281"
+      "9240b70cc8f4b0d4072777829c422e14"
     ],
     [
       "Cpuid_stdcalls.check_avx2",
@@ -104,7 +104,7 @@
         "typing_Interop.Assumptions.win"
       ],
       0,
-      "33e0b941938ce7e4004422c88e5cd05e"
+      "36d63ef05ee6757d4396502f97ab6f88"
     ]
   ]
 ]

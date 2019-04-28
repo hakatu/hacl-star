@@ -12,7 +12,7 @@
         "refinement_interpretation_Tm_refine_ba523126f67e00e7cd55f0b92f16681d"
       ],
       0,
-      "1a532013e951f054031b473db089550d"
+      "11e6b3c42b5553c119b808bd2bc6023f"
     ],
     [
       "X64.FastMul.va_wp_fast_multiply",
@@ -24,7 +24,7 @@
         "refinement_interpretation_Prims_Tm_refine_a4038d5aed1633b5ecbb4e499b1c66ad"
       ],
       0,
-      "3ea0936eb59b595aeecb988d6956dd06"
+      "80eff8efee74702c948a4ebe0d776cd0"
     ],
     [
       "X64.FastMul.va_wpProof_fast_multiply",
@@ -36,7 +36,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "0db0236443effbd8fc17e5113d601096"
+      "9eca6ab4d325baa08ff9b71b4b3b83fa"
     ],
     [
       "X64.FastMul.va_lemma_fast_mul_stdcall",
@@ -71,7 +71,7 @@
         "typing_tok_X64.Machine_s.Rsi@tok"
       ],
       0,
-      "4d2d3303d08078a2418d1ef3e7a29b8a"
+      "ca0068a7faf67d6b71e879075c6d596c"
     ],
     [
       "X64.FastMul.va_wp_fast_mul_stdcall",
@@ -94,7 +94,7 @@
         "typing_X64.Vale.Decls.va_if", "unit_typing"
       ],
       0,
-      "78a6ed7a1358b3bda20b0b18ab11ec1f"
+      "4c835e0250adb3e1a341dde028d25d72"
     ],
     [
       "X64.FastMul.va_wpProof_fast_mul_stdcall",
@@ -106,7 +106,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "e454e7da66063994415751da44c968ba"
+      "7dd24fabb8dd6bf86b641f499ba72d99"
     ],
     [
       "X64.FastMul.va_lemma_fast_mul2_stdcall",
@@ -141,7 +141,7 @@
         "typing_tok_X64.Machine_s.Rsi@tok"
       ],
       0,
-      "b3426d50814e37b74ae4fc1dc271c61a"
+      "ae5852a30e27e62fee53f9c1d02b9a28"
     ],
     [
       "X64.FastMul.va_wp_fast_mul2_stdcall",
@@ -164,7 +164,7 @@
         "typing_X64.Vale.Decls.va_if", "unit_typing"
       ],
       0,
-      "17b3878e933e10715142719d9b82fec3"
+      "bd15cce7ccb9b62af1f560a0825c7ac5"
     ],
     [
       "X64.FastMul.va_wpProof_fast_mul2_stdcall",
@@ -176,7 +176,7 @@
         "refinement_interpretation_Tm_refine_8d65e998a07dd53ec478e27017d9dba5"
       ],
       0,
-      "113b91d9a849650c6f5addd061d82260"
+      "fe59c6876928a9ec228e838d1c15e8f8"
     ]
   ]
 ]

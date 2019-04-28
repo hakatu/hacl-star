@@ -42,7 +42,7 @@
         "typing_tok_Interop.Types.TUInt8@tok", "unit_typing"
       ],
       0,
-      "ed8b08510ed2706bf54886bd17f96094"
+      "00999d63d449a9d694f26efb2828e853"
     ],
     [
       "X64.Poly1305.CallingFromLowStar.lemma_call_poly1305",
@@ -133,7 +133,7 @@
         "typing_tok_Lib.IntTypes.SEC@tok", "unit_typing"
       ],
       0,
-      "3b396a593a840013b81f982634f18130"
+      "f596c5921bbe3c886a49b89db83245b1"
     ]
   ]
 ]
